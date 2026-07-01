@@ -257,10 +257,12 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   SCROLL REVEAL (Intersection Observer)
+   SCROLL REVEAL (Intersection Observer) — Premium
    ========================================================================== */
 function initScrollReveal() {
-  const elements = document.querySelectorAll('.reveal-on-scroll');
+  const elements = document.querySelectorAll(
+    '.reveal-on-scroll, .reveal, .reveal-left, .reveal-right, .reveal-scale'
+  );
   if (!elements.length) return;
 
   const observer = new IntersectionObserver((entries, obs) => {
@@ -270,7 +272,7 @@ function initScrollReveal() {
         obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 
   elements.forEach(el => observer.observe(el));
 }
@@ -612,9 +614,122 @@ async function loadMenuData() {
 }
 
 /* ==========================================================================
+   PREMIUM: LOADING SCREEN
+   ========================================================================== */
+function initLoadingScreen() {
+  const screen = document.getElementById('loading-screen');
+  if (!screen) return;
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      screen.classList.add('hidden');
+      // Remove from DOM after animation
+      setTimeout(() => screen.remove(), 600);
+    }, 1400);
+  });
+}
+
+/* ==========================================================================
+   PREMIUM: SCROLL PROGRESS INDICATOR
+   ========================================================================== */
+function initScrollProgress() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+
+  const updateProgress = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = progress + '%';
+  };
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+}
+
+/* ==========================================================================
+   PREMIUM: CUSTOM CURSOR (desktop only)
+   ========================================================================== */
+function initCustomCursor() {
+  if (window.innerWidth < 1024) return;
+
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+  });
+
+  // Smooth ring follow
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover effect on interactive elements
+  const hoverTargets = document.querySelectorAll('a, button, .btn, .dish-card, .carousel-item, input, select');
+  hoverTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      dot.classList.add('hover');
+      ring.classList.add('hover');
+    });
+    el.addEventListener('mouseleave', () => {
+      dot.classList.remove('hover');
+      ring.classList.remove('hover');
+    });
+  });
+}
+
+/* ==========================================================================
+   PREMIUM: BACK TO TOP
+   ========================================================================== */
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ==========================================================================
+   PREMIUM: FLOATING CTA (mobile)
+   ========================================================================== */
+function initFloatingCTA() {
+  const cta = document.getElementById('floating-cta');
+  if (!cta) return;
+
+  window.addEventListener('scroll', () => {
+    // Show after scrolling past the hero section
+    cta.classList.toggle('visible', window.scrollY > window.innerHeight * 0.8);
+  }, { passive: true });
+}
+
+/* ==========================================================================
    DOMContentLoaded — Bootstrap all modules
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', async () => {
+
+  // Premium features (run immediately)
+  initLoadingScreen();
+  initScrollProgress();
+  initCustomCursor();
+  initBackToTop();
+  initFloatingCTA();
 
   // Load menu from backend (non-blocking fallback)
   await loadMenuData();

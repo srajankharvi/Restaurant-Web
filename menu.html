@@ -12,8 +12,21 @@
 
 <body class="menu-page dark-theme">
 
+  <!-- ==================== PREMIUM LOADING SCREEN ==================== -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-logo">Woodlands<span>.</span></div>
+    <div class="loading-bar"></div>
+  </div>
+
+  <!-- ==================== SCROLL PROGRESS ==================== -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
   <!-- Page transition overlay -->
   <div class="page-transition-overlay" id="page-transition-overlay"></div>
+
+  <!-- ==================== CUSTOM CURSOR (desktop) ==================== -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
 
   <header id="header">
     <div class="container nav-wrapper">
@@ -21,12 +34,12 @@
       <nav>
         <ul class="nav-links" id="nav-links">
           <li><a href="/">Home</a></li>
-          <li><a href="/about">About Us</a></li>
+          <li><a href="/about">About</a></li>
           <li><a href="/menu" class="active">Menu</a></li>
         </ul>
       </nav>
       <div class="header-actions">
-        <button class="btn btn-primary" style="padding:0.55rem 1.15rem;font-size:0.82rem;" onclick="openBookingModal()">Book Table</button>
+        <button class="btn btn-primary" onclick="openBookingModal()">Book Table</button>
       </div>
       <button class="menu-btn" id="menu-btn" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -506,6 +519,11 @@
       </div>
     </div>
   </div>
+
+  <!-- ==================== BACK TO TOP ==================== -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 12 10 7 15 12"/></svg>
+  </button>
 
   <script src="script.js"></script>
 </body>

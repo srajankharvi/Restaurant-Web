@@ -10,8 +10,21 @@
 </head>
 <body class="about-page">
 
+  <!-- ==================== PREMIUM LOADING SCREEN ==================== -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-logo">Woodlands<span>.</span></div>
+    <div class="loading-bar"></div>
+  </div>
+
+  <!-- ==================== SCROLL PROGRESS ==================== -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
   <!-- Page transition overlay -->
   <div class="page-transition-overlay" id="page-transition-overlay"></div>
+
+  <!-- ==================== CUSTOM CURSOR (desktop) ==================== -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
 
   <!-- ==================== HEADER ==================== -->
   <header id="header">
@@ -20,12 +33,12 @@
       <nav>
         <ul class="nav-links" id="nav-links">
           <li><a href="/">Home</a></li>
-          <li><a href="/about" class="active">About Us</a></li>
+          <li><a href="/about" class="active">About</a></li>
           <li><a href="/menu">Menu</a></li>
         </ul>
       </nav>
       <div class="header-actions">
-        <button class="btn btn-primary" style="padding:0.55rem 1.15rem;font-size:0.82rem;" onclick="openBookingModal()">Book Table</button>
+        <button class="btn btn-primary" onclick="openBookingModal()">Book Table</button>
       </div>
       <button class="menu-btn" id="menu-btn" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -35,10 +48,8 @@
 
   <!-- ==================== HERO ==================== -->
   <section style="
-    background-image: linear-gradient(to bottom, rgba(27,43,34,0.88), rgba(27,43,34,0.70)), url('assets/hero.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
     min-height: 45vh;
     display: flex;
     align-items: center;
@@ -48,29 +59,33 @@
     padding-top: 6rem;
     padding-bottom: 4rem;
   ">
-    <div class="container">
-      <div class="reveal-on-scroll">
-        <span class="hero-subtitle" style="color: var(--accent-gold); letter-spacing: 0.25em; text-transform: uppercase; font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 1rem;">Our Story</span>
-        <h1 style="font-size: 3rem; color: #FFF; margin-bottom: 0.5rem;">Authentic South Indian Cuisine Since Generations</h1>
-        <p style="color: rgba(240, 238, 235, 0.85); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">Woodlands Restaurant is Udupi's premier destination for pure vegetarian South Indian cuisine, family dining, and traditional hospitality.</p>
+    <div style="position:absolute;inset:0;background:url('assets/hero.png') center/cover no-repeat;transform:scale(1.05);animation:heroZoom 20s ease-in-out infinite alternate;z-index:0;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.88), rgba(0,0,0,0.70));z-index:1;"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="reveal">
+        <span style="color: var(--accent-gold); letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.82rem; font-weight: 700; display: block; margin-bottom: 1rem;">Our Story</span>
+        <h1 style="font-size: clamp(2rem, 5vw, 3rem); color: #FFF; margin-bottom: 0.75rem;">Authentic South Indian Cuisine<br>Since Generations</h1>
+        <div class="section-divider"></div>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: clamp(0.9rem, 2vw, 1.05rem); line-height: 1.7;">Woodlands Restaurant is Udupi's premier destination for pure vegetarian South Indian cuisine, family dining, and traditional hospitality.</p>
       </div>
     </div>
   </section>
 
   <!-- ==================== OUR STORY ==================== -->
-  <section class="about-story" style="background: var(--bg-primary);">
+  <section class="about-story" style="background: var(--bg-primary); padding: clamp(4rem, 8vw, 7rem) 0;">
     <div class="container">
       <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-        <div class="reveal-on-scroll">
+        <div class="reveal">
           <h2><span>Our Story</span>Authentic South Indian Cuisine Since Generations</h2>
-          <p style="margin-bottom: 1.25rem; font-size: 1.05rem; line-height: 1.7;">Woodlands Restaurant is one of Udupi's well-known vegetarian restaurants, serving authentic South Indian cuisine prepared using fresh ingredients and traditional recipes. Founded with a passion for preserving the culinary heritage of South India, we offer a comfortable family-friendly dining experience with delicious food, quick service, and quality hospitality.</p>
-          <p style="margin-bottom: 1.25rem; font-size: 1.05rem; line-height: 1.7;">Every dish at Woodlands is crafted with care, honoring the traditional cooking methods and flavor profiles that have made South Indian cuisine beloved across generations. We source the finest ingredients and prepare each meal with the dedication and love it deserves.</p>
-          <p style="font-size: 1.05rem; line-height: 1.7;">Our commitment to purity—both in our vegetarian philosophy and in our ingredients—ensures that every plate that leaves our kitchen is a testament to quality, authenticity, and the warmth of South Indian hospitality.</p>
+          <div class="section-divider" style="margin: 0 0 1.5rem;"></div>
+          <p style="margin-bottom: 1.25rem; font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);">Woodlands Restaurant is one of Udupi's well-known vegetarian restaurants, serving authentic South Indian cuisine prepared using fresh ingredients and traditional recipes. Founded with a passion for preserving the culinary heritage of South India, we offer a comfortable family-friendly dining experience with delicious food, quick service, and quality hospitality.</p>
+          <p style="margin-bottom: 1.25rem; font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);">Every dish at Woodlands is crafted with care, honoring the traditional cooking methods and flavor profiles that have made South Indian cuisine beloved across generations. We source the finest ingredients and prepare each meal with the dedication and love it deserves.</p>
+          <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);">Our commitment to purity—both in our vegetarian philosophy and in our ingredients—ensures that every plate that leaves our kitchen is a testament to quality, authenticity, and the warmth of South Indian hospitality.</p>
         </div>
-        <div class="reveal-on-scroll delay-1">
+        <div class="reveal-right stagger-2">
           <div style="position: relative; padding: 1rem;">
-            <div style="position: absolute; inset: 0; border: 1.5px solid var(--accent-gold); transform: translate(10px, 10px); border-radius: 6px; pointer-events: none; z-index: 1;"></div>
-            <img src="assets/dining.png" alt="Woodlands Restaurant Family Dining" loading="lazy" width="600" height="380" style="width: 100%; height: 380px; object-fit: cover; border-radius: 6px; position: relative; z-index: 2; box-shadow: var(--shadow-lg);">
+            <div style="position: absolute; inset: 0; border: 1.5px solid var(--accent-gold); transform: translate(10px, 10px); border-radius: 18px; pointer-events: none; z-index: 1;"></div>
+            <img src="assets/dining.png" alt="Woodlands Restaurant Family Dining" loading="lazy" width="600" height="380" style="width: 100%; height: 380px; object-fit: cover; border-radius: 18px; position: relative; z-index: 2; box-shadow: var(--shadow-lg);">
           </div>
         </div>
       </div>
@@ -78,23 +93,24 @@
   </section>
 
   <!-- ==================== GALLERY STRIP ==================== -->
-  <section style="background: var(--bg-secondary); padding: 5rem 0;">
+  <section style="background: var(--bg-secondary); padding: clamp(4rem, 8vw, 6rem) 0;">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 3rem;" class="reveal-on-scroll">
+      <div style="text-align: center; margin-bottom: 3rem;" class="reveal">
         <h2><span>Gallery</span>A Glimpse Inside</h2>
-        <p>Our warm, welcoming dining space and freshly prepared authentic dishes.</p>
+        <div class="section-divider"></div>
+        <p style="color: var(--text-secondary);">Our warm, welcoming dining space and freshly prepared authentic dishes.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;" class="reveal-on-scroll delay-1">
-        <div style="border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/3;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+        <div class="reveal-scale stagger-1" style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/3; transition: transform 0.5s var(--ease-out);" onmouseenter="this.style.transform='scale(1.03)'" onmouseleave="this.style.transform='scale(1)'">
           <img src="assets/Masala_Dosa.png" alt="Masala Dosa" loading="lazy" width="400" height="300" style="width:100%; height:100%; object-fit:cover;">
         </div>
-        <div style="border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/3;">
+        <div class="reveal-scale stagger-2" style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/3; transition: transform 0.5s var(--ease-out);" onmouseenter="this.style.transform='scale(1.03)'" onmouseleave="this.style.transform='scale(1)'">
           <img src="assets/Medu_Vada.png" alt="Medu Vada" loading="lazy" width="400" height="300" style="width:100%; height:100%; object-fit:cover;">
         </div>
-        <div style="border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/3;">
+        <div class="reveal-scale stagger-3" style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/3; transition: transform 0.5s var(--ease-out);" onmouseenter="this.style.transform='scale(1.03)'" onmouseleave="this.style.transform='scale(1)'">
           <img src="assets/South_Indian_Meals.png" alt="South Indian Meals" loading="lazy" width="400" height="300" style="width:100%; height:100%; object-fit:cover;">
         </div>
-        <div style="border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/3;">
+        <div class="reveal-scale stagger-4" style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/3; transition: transform 0.5s var(--ease-out);" onmouseenter="this.style.transform='scale(1.03)'" onmouseleave="this.style.transform='scale(1)'">
           <img src="assets/Ghee_Roast_Dosa.png" alt="Ghee Roast Dosa" loading="lazy" width="400" height="300" style="width:100%; height:100%; object-fit:cover;">
         </div>
       </div>
@@ -102,48 +118,49 @@
   </section>
 
   <!-- ==================== WHY CHOOSE US ==================== -->
-  <section class="about-choose" style="background: var(--bg-primary); padding: 5rem 0;">
+  <section class="about-choose" style="background: var(--bg-primary); padding: clamp(4rem, 8vw, 6rem) 0;">
     <div class="container">
-      <div style="text-align: center; max-width: 600px; margin: 0 auto 3.5rem;" class="reveal-on-scroll">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 3.5rem;" class="reveal">
         <h2><span>Highlights</span>Why Choose Woodlands</h2>
-        <p>We focus on delivering exceptional South Indian cuisine and hospitality that make your dining experience memorable and satisfying.</p>
+        <div class="section-divider"></div>
+        <p style="color: var(--text-secondary);">We focus on delivering exceptional South Indian cuisine and hospitality that make your dining experience memorable and satisfying.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;" class="reveal-on-scroll delay-1">
-        <div style="background: var(--bg-card); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: var(--shadow-xs);">
-          <div style="color: var(--accent-green); margin-bottom: 1rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div class="reveal stagger-1" style="background: var(--bg-card); padding: 2rem; border-radius: 18px; border: 1px solid var(--border-color); box-shadow: var(--shadow-xs); transition: all 0.4s var(--ease-out);" onmouseenter="this.style.borderColor='rgba(201,162,39,0.25)';this.style.transform='translateY(-5px)'" onmouseleave="this.style.borderColor='var(--border-color)';this.style.transform='translateY(0)'">
+          <div style="color: var(--accent-gold); margin-bottom: 1rem;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm3.5-9H13V8.5a1 1 0 0 0-2 0V11H8.5a1 1 0 0 0 0 2H11v2.5a1 1 0 0 0 2 0V13h2.5a1 1 0 0 0 0-2z"/></svg>
           </div>
-          <h3 style="font-size: 1.25rem; font-family: var(--font-body); font-weight: 700; margin-bottom: 0.75rem;">Pure Vegetarian</h3>
-          <p style="font-size: 0.92rem; line-height: 1.6;">100% vegetarian cuisine with authentic South Indian recipes and the finest fresh ingredients carefully sourced from trusted suppliers.</p>
+          <h3 style="font-size: 1.25rem; font-family: var(--font-body); font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">Pure Vegetarian</h3>
+          <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">100% vegetarian cuisine with authentic South Indian recipes and the finest fresh ingredients carefully sourced from trusted suppliers.</p>
         </div>
 
-        <div style="background: var(--bg-card); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: var(--shadow-xs);">
-          <div style="color: var(--accent-green); margin-bottom: 1rem;">
+        <div class="reveal stagger-2" style="background: var(--bg-card); padding: 2rem; border-radius: 18px; border: 1px solid var(--border-color); box-shadow: var(--shadow-xs); transition: all 0.4s var(--ease-out);" onmouseenter="this.style.borderColor='rgba(201,162,39,0.25)';this.style.transform='translateY(-5px)'" onmouseleave="this.style.borderColor='var(--border-color)';this.style.transform='translateY(0)'">
+          <div style="color: var(--accent-gold); margin-bottom: 1rem;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h3 style="font-size: 1.25rem; font-family: var(--font-body); font-weight: 700; margin-bottom: 0.75rem;">Traditional Recipes</h3>
-          <p style="font-size: 0.92rem; line-height: 1.6;">Time-honored South Indian cooking methods that preserve authentic flavors while maintaining the highest standards of food quality and hygiene.</p>
+          <h3 style="font-size: 1.25rem; font-family: var(--font-body); font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">Traditional Recipes</h3>
+          <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">Time-honored South Indian cooking methods that preserve authentic flavors while maintaining the highest standards of food quality and hygiene.</p>
         </div>
 
-        <div style="background: var(--bg-card); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: var(--shadow-xs);">
-          <div style="color: var(--accent-green); margin-bottom: 1rem;">
+        <div class="reveal stagger-3" style="background: var(--bg-card); padding: 2rem; border-radius: 18px; border: 1px solid var(--border-color); box-shadow: var(--shadow-xs); transition: all 0.4s var(--ease-out);" onmouseenter="this.style.borderColor='rgba(201,162,39,0.25)';this.style.transform='translateY(-5px)'" onmouseleave="this.style.borderColor='var(--border-color)';this.style.transform='translateY(0)'">
+          <div style="color: var(--accent-gold); margin-bottom: 1rem;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <h3 style="font-size: 1.25rem; font-family: var(--font-body); font-weight: 700; margin-bottom: 0.75rem;">Family Atmosphere</h3>
-          <p style="font-size: 0.92rem; line-height: 1.6;">Spacious, comfortable dining spaces perfect for families and group gatherings with warm hospitality and attentive, friendly service.</p>
+          <h3 style="font-size: 1.25rem; font-family: var(--font-body); font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">Family Atmosphere</h3>
+          <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">Spacious, comfortable dining spaces perfect for families and group gatherings with warm hospitality and attentive, friendly service.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ==================== VISION ==================== -->
-  <section class="about-vision" style="background: var(--bg-secondary); padding: 6rem 0; text-align: center;">
-    <div class="container reveal-on-scroll">
+  <section class="about-vision" style="background: var(--bg-secondary); padding: clamp(4rem, 8vw, 7rem) 0; text-align: center;">
+    <div class="container reveal">
       <div style="max-width: 700px; margin: 0 auto;">
-        <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-gold); display: block; margin-bottom: 1rem;">Our Mission</span>
-        <h2 style="font-size: 2.25rem; margin-bottom: 1.5rem; line-height: 1.3;">To serve every family with authentic South Indian cuisine, quality hospitality, and the warmth of traditional dining.</h2>
-        <div style="width: 60px; height: 3px; background: var(--accent-terracotta); margin: 2rem auto;"></div>
+        <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent-gold); display: block; margin-bottom: 1rem;">Our Mission</span>
+        <h2 style="font-size: clamp(1.5rem, 4vw, 2.25rem); margin-bottom: 1.5rem; line-height: 1.3; color: var(--text-primary);">To serve every family with authentic South Indian cuisine, quality hospitality, and the warmth of traditional dining.</h2>
+        <div class="section-divider"></div>
         <p style="font-size: 1.1rem; font-style: italic; color: var(--text-secondary); line-height: 1.7;">"At Woodlands, we believe that authentic food and genuine hospitality create memories that last a lifetime."</p>
         <div style="margin-top: 2.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
           <a href="/menu" class="btn btn-primary">Explore Our Menu</a>
@@ -188,6 +205,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- ==================== BACK TO TOP ==================== -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 12 10 7 15 12"/></svg>
+  </button>
 
   <!-- ==================== BOOK TABLE MODAL ==================== -->
   <div class="booking-modal-overlay" id="booking-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
