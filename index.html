@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Woodlands Restaurant | Authentic South Indian Cuisine in Udupi</title>
+  <meta name="description" content="Experience authentic South Indian cuisine at Woodlands Restaurant in Udupi, Karnataka. Serving pure vegetarian dosas, idlis, filter coffee, and traditional South Indian meals.">
+  <meta name="keywords" content="Woodlands Restaurant Udupi, South Indian Food Udupi, Vegetarian Restaurant, Dosa, Idli, Filter Coffee, Udupi Cuisine">
+  <meta property="og:title" content="Woodlands Restaurant | Authentic South Indian Cuisine in Udupi">
+  <meta property="og:description" content="Experience authentic South Indian flavours at Woodlands Restaurant. Pure vegetarian, family-friendly dining with traditional recipes and quality hospitality in Udupi.">
+  <meta property="og:image" content="assets/hero.png">
+  <meta property="og:type" content="website">
+  <!-- Preload hero image for instant display with no FOUC -->
+  <link rel="preload" as="image" href="assets/hero.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+
+  <!-- Page transition overlay -->
+  <div class="page-transition-overlay" id="page-transition-overlay"></div>
+
+  <!-- ==================== HEADER ==================== -->
+  <header id="header">
+    <div class="container nav-wrapper">
+      <a href="/" class="logo" id="nav-logo">Woodlands<span>.</span></a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/menu">Menu</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" id="menu-btn" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== 1. HERO ==================== -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content reveal-on-scroll">
+        <span class="hero-subtitle">Pure Vegetarian · Udupi, Karnataka</span>
+        <h1>Experience Authentic<br>South Indian Flavours</h1>
+        <p class="hero-desc">Enjoy traditional South Indian dishes, delicious dosas, authentic meals, aromatic filter coffee, and warm hospitality at Woodlands Restaurant, Udupi. A family restaurant serving pure vegetarian cuisine with generations of tradition.</p>
+        <div class="hero-ctas">
+          <a href="/menu" class="btn btn-primary">View Menu</a>
+          <button class="btn btn-secondary" id="btn-book-table" onclick="openBookingModal()">Book Table</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. BRAND OVERVIEW (QUICK ABOUT) ==================== -->
+  <section class="brand-overview" style="background: var(--bg-primary);">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal-on-scroll">
+          <h2><span>Our Story</span>Authentic South Indian Cuisine Since Generations</h2>
+          <p>Woodlands Restaurant is one of Udupi's well-known vegetarian restaurants, serving authentic South Indian cuisine prepared using fresh ingredients and traditional recipes. We offer a comfortable family-friendly dining experience, delicious food, quick service, and quality hospitality.</p>
+          <p>Every dish is crafted with care, honoring the culinary traditions of Udupi while maintaining the highest standards of food quality and customer service. Our family welcomes yours to experience the warmth of traditional South Indian dining.</p>
+          <div class="about-highlights" style="margin-top: 1.5rem;">
+            <div class="highlight-item">
+              <h4>Pure Vegetarian</h4>
+              <p>100% vegetarian cuisine with authentic South Indian recipes and fresh ingredients.</p>
+            </div>
+            <div class="highlight-item">
+              <h4>Family Dining</h4>
+              <p>Comfortable, spacious dining area perfect for families and group gatherings.</p>
+            </div>
+          </div>
+          <a href="/about" class="btn btn-secondary" style="margin-top: 2rem;">Read Our Full Story</a>
+        </div>
+        <div class="about-image reveal-on-scroll delay-1">
+          <img src="assets/dining.png" alt="Woodlands Restaurant Dining Area" loading="lazy" width="600" height="420">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED DISHES ==================== -->
+  <section style="background: var(--bg-secondary); padding: 5rem 0;">
+    <div class="container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 3.5rem;" class="reveal-on-scroll">
+        <h2><span>Signature</span>Our Best Dishes</h2>
+        <p>Authentic South Indian flavours crafted with generations of tradition, fresh ingredients, and wholesome recipes.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;" class="reveal-on-scroll delay-1">
+        <!-- Masala Dosa Card -->
+        <div style="background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.4s ease;">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="assets/Masala_Dosa.png" alt="Masala Dosa" loading="lazy" width="400" height="200" style="width:100%; height:100%; object-fit:cover; transition: transform 0.5s ease;">
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem;">
+              <h3 style="font-size:1.15rem;">Masala Dosa</h3>
+              <span style="color: var(--accent-green); font-weight: 700; font-family: var(--font-body);">₹80</span>
+            </div>
+            <p style="font-size:0.88rem; line-height:1.55;">Crispy golden dosa filled with spiced potato, served with sambar and coconut chutney.</p>
+          </div>
+        </div>
+        <!-- South Indian Meals Card -->
+        <div style="background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.4s ease;">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="assets/South_Indian_Meals.png" alt="South Indian Meals" loading="lazy" width="400" height="200" style="width:100%; height:100%; object-fit:cover; transition: transform 0.5s ease;">
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem;">
+              <h3 style="font-size:1.15rem;">South Indian Meals</h3>
+              <span style="color: var(--accent-green); font-weight: 700; font-family: var(--font-body);">₹120</span>
+            </div>
+            <p style="font-size:0.88rem; line-height:1.55;">Traditional vegetarian meal with rice, sambar, rasam, curry, pappad, pickle, and curd.</p>
+          </div>
+        </div>
+        <!-- Ghee Roast Card -->
+        <div style="background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.4s ease;">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="assets/Ghee_Roast_Dosa.png" alt="Ghee Roast Dosa" loading="lazy" width="400" height="200" style="width:100%; height:100%; object-fit:cover; transition: transform 0.5s ease;">
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem;">
+              <h3 style="font-size:1.15rem;">Ghee Roast Dosa</h3>
+              <span style="color: var(--accent-green); font-weight: 700; font-family: var(--font-body);">₹100</span>
+            </div>
+            <p style="font-size:0.88rem; line-height:1.55;">Crispy dosa cooked in pure ghee, served with sambar, chutney, and filter coffee.</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top: 2.5rem;" class="reveal-on-scroll delay-2">
+        <a href="/menu" class="btn btn-primary">View Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TRUST INDICATORS (TESTIMONIALS) ==================== -->
+  <section class="testimonials" style="background: var(--bg-primary); padding: 5rem 0;">
+    <div class="container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 3.5rem;" class="reveal-on-scroll">
+        <h2><span>Reviews</span>What Our Customers Say</h2>
+        <p>Authentic testimonials from our valued customers who enjoy our traditional South Indian cuisine and family hospitality.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;" class="reveal-on-scroll delay-1">
+        
+        <!-- Review 1 -->
+        <div style="background: var(--bg-card); padding: 2.25rem; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display:flex; flex-direction:column;">
+          <div style="color: var(--accent-gold); margin-bottom: 1rem; display: flex; gap: 0.2rem;">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p style="font-size: 0.92rem; font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6; flex-grow:1;">"The best dosa I've had in Udupi! Woodlands serves authentic flavors with the perfect crispy texture. The filter coffee is aromatic and exactly how it should be prepared. Truly a family restaurant that values quality."</p>
+          <div style="display: flex; align-items: center; gap: 0.85rem;">
+            <div style="width: 38px; height: 38px; border-radius:50%; background: var(--accent-green-light); color: var(--accent-green); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.9rem;">RK</div>
+            <div>
+              <h4 style="font-size: 0.88rem; font-family: var(--font-body); font-weight: 700;">Rajesh Kumar</h4>
+              <p style="font-size: 0.72rem; color: var(--text-secondary);">Regular Customer</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div style="background: var(--bg-card); padding: 2.25rem; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display:flex; flex-direction:column;">
+          <div style="color: var(--accent-gold); margin-bottom: 1rem; display: flex; gap: 0.2rem;">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p style="font-size: 0.92rem; font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6; flex-grow:1;">"We took our family for lunch and the experience was fantastic. The staff was friendly and attentive. The masala dosa and ghee roast were excellent. Highly recommend for family gatherings!"</p>
+          <div style="display: flex; align-items: center; gap: 0.85rem;">
+            <div style="width: 38px; height: 38px; border-radius:50%; background: var(--accent-green-light); color: var(--accent-green); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.9rem;">SM</div>
+            <div>
+              <h4 style="font-size: 0.88rem; font-family: var(--font-body); font-weight: 700;">Meera Shetty</h4>
+              <p style="font-size: 0.72rem; color: var(--text-secondary);">Family Diner</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div style="background: var(--bg-card); padding: 2.25rem; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display:flex; flex-direction:column;">
+          <div style="color: var(--accent-gold); margin-bottom: 1rem; display: flex; gap: 0.2rem;">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p style="font-size: 0.92rem; font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6; flex-grow:1;">"Visited Woodlands last week and loved the breakfast idlis with sambar. The portion sizes are generous and the prices are fair. The traditional South Indian atmosphere adds to the charm. Will visit again soon!"</p>
+          <div style="display: flex; align-items: center; gap: 0.85rem;">
+            <div style="width: 38px; height: 38px; border-radius:50%; background: var(--accent-green-light); color: var(--accent-green); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.9rem;">PR</div>
+            <div>
+              <h4 style="font-size: 0.88rem; font-family: var(--font-body); font-weight: 700;">Prakash Rao</h4>
+              <p style="font-size: 0.72rem; color: var(--text-secondary);">Local Patron</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo" style="color:#FFF;">Woodlands<span>.</span></a>
+          <p>Authentic South Indian cuisine and traditional family hospitality in the heart of Udupi.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.95z"/></svg></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98C23.986 15.668 24 15.259 24 12c0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/menu">Menu</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact-list">
+            <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+91 XXXXX XXXXX</span></li>
+            <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@woodlandsudupi.com</span></li>
+            <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Udupi, Karnataka</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Woodlands Restaurant. All Rights Reserved.</p>
+        <p><a href="#">Privacy</a> &bull; <a href="#">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== BOOK TABLE MODAL ==================== -->
+  <div class="booking-modal-overlay" id="booking-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+    <div class="booking-modal">
+      <div class="booking-modal-header">
+        <div>
+          <h2 id="booking-modal-title">Book a Table</h2>
+          <p>Reserve your spot at Woodlands Restaurant</p>
+        </div>
+        <button class="booking-modal-close" id="booking-modal-close" aria-label="Close booking modal">&times;</button>
+      </div>
+
+      <!-- Booking Form -->
+      <form class="booking-form" id="booking-form" novalidate>
+        <div class="booking-form-row">
+          <div class="booking-field">
+            <label for="book-name">Full Name</label>
+            <input type="text" id="book-name" name="name" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="booking-field">
+            <label for="book-phone">Phone</label>
+            <input type="tel" id="book-phone" name="phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
+          </div>
+        </div>
+        <div class="booking-field">
+          <label for="book-email">Email Address</label>
+          <input type="email" id="book-email" name="email" placeholder="your@email.com" required autocomplete="email">
+        </div>
+        <div class="booking-form-row">
+          <div class="booking-field">
+            <label for="book-date">Date</label>
+            <input type="date" id="book-date" name="date" required>
+          </div>
+          <div class="booking-field">
+            <label for="book-time">Time</label>
+            <input type="time" id="book-time" name="time" required>
+          </div>
+        </div>
+        <div class="booking-field">
+          <label for="book-guests">Number of Guests</label>
+          <select id="book-guests" name="guests" required>
+            <option value="" disabled selected>Select guests</option>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5 Guests</option>
+            <option value="6">6 Guests</option>
+            <option value="7+">7+ Guests (Group)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary booking-submit">Confirm Reservation</button>
+      </form>
+
+      <!-- Success State -->
+      <div class="booking-success" id="booking-success">
+        <div class="booking-success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 style="font-size:1.35rem;">Reservation Confirmed!</h3>
+        <p>We'll reach out to confirm your booking soon.</p>
+        <button class="btn btn-secondary" onclick="closeBookingModal()" style="margin-top:0.5rem;">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

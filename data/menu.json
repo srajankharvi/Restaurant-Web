@@ -1,0 +1,131 @@
+[
+    {
+        "id": 0,
+        "name": "Masala Dosa",
+        "price": "₹80",
+        "category": "dosa",
+        "image": "assets/Masala_Dosa.png",
+        "desc": "Crispy, golden dosa filled with spiced potato and served with hot sambar, coconut chutney, and filter coffee. A classic South Indian breakfast specialty.",
+        "ingredients": [
+            "Rice",
+            "Potato",
+            "Spices",
+            "Ghee"
+        ],
+        "spice": 2,
+        "spiceLabel": "Medium"
+    },
+    {
+        "id": 1,
+        "name": "Medu Vada",
+        "price": "₹60",
+        "category": "breakfast",
+        "image": "assets/Medu_Vada.png",
+        "desc": "Soft, fluffy lentil fritters with a delicate hole in the center, served with hot sambar and tangy coconut chutney. A traditional South Indian delight.",
+        "ingredients": [
+            "Urad Dal",
+            "Cumin",
+            "Green Chili",
+            "Asafetida"
+        ],
+        "spice": 1,
+        "spiceLabel": "Mild"
+    },
+    {
+        "id": 2,
+        "name": "Idli Sambar",
+        "price": "₹70",
+        "category": "breakfast",
+        "image": "assets/Medu_Vada.png",
+        "desc": "Steamed soft rice and lentil cakes served with spicy vegetable sambar and tangy coconut chutney. A nutritious and authentic South Indian breakfast.",
+        "ingredients": [
+            "Rice",
+            "Urad Dal",
+            "Spices",
+            "Vegetables"
+        ],
+        "spice": 2,
+        "spiceLabel": "Medium"
+    },
+    {
+        "id": 3,
+        "name": "South Indian Meals",
+        "price": "₹120",
+        "category": "meals",
+        "image": "assets/South_Indian_Meals.png",
+        "desc": "Traditional vegetarian meal with steamed rice, sambar, rasam, vegetable curry, pappad, pickle, and curd. A complete and wholesome dining experience.",
+        "ingredients": [
+            "Rice",
+            "Sambar",
+            "Rasam",
+            "Vegetables"
+        ],
+        "spice": 1,
+        "spiceLabel": "Mild"
+    },
+    {
+        "id": 4,
+        "name": "Ghee Roast Dosa",
+        "price": "₹100",
+        "category": "dosa",
+        "image": "assets/Ghee_Roast_Dosa.png",
+        "desc": "Crispy dosa cooked in pure ghee with a crunchy exterior, served with sambar, chutney, and hot filter coffee. A rich and indulgent treat.",
+        "ingredients": [
+            "Rice",
+            "Ghee",
+            "Butter",
+            "Potatoes"
+        ],
+        "spice": 1,
+        "spiceLabel": "Mild"
+    },
+    {
+        "id": 5,
+        "name": "South Indian Filter Coffee",
+        "price": "₹40",
+        "category": "beverages",
+        "image": "assets/dining.png",
+        "desc": "Strong, aromatic South Indian coffee freshly brewed with a traditional metal filter and steamed milk. The perfect companion to any meal.",
+        "ingredients": [
+            "Coffee Beans",
+            "Milk",
+            "Sugar",
+            "Chicory"
+        ],
+        "spice": 0,
+        "spiceLabel": "Not Spicy"
+    },
+    {
+        "id": 6,
+        "name": "Paneer Butter Masala",
+        "price": "₹150",
+        "category": "meals",
+        "image": "assets/South_Indian_Meals.png",
+        "desc": "Soft paneer cubes in a creamy tomato and butter sauce with aromatic spices, served with basmati rice or freshly made roti.",
+        "ingredients": [
+            "Paneer",
+            "Tomato",
+            "Cream",
+            "Butter",
+            "Spices"
+        ],
+        "spice": 1,
+        "spiceLabel": "Mild"
+    },
+    {
+        "id": 7,
+        "name": "Gulab Jamun",
+        "price": "₹50",
+        "category": "desserts",
+        "image": "assets/dining.png",
+        "desc": "Soft, spongy milk powder balls soaked in fragrant rose and cardamom flavored sugar syrup, served warm. The perfect sweet ending to your meal.",
+        "ingredients": [
+            "Milk Powder",
+            "Rose Water",
+            "Cardamom",
+            "Sugar Syrup"
+        ],
+        "spice": 0,
+        "spiceLabel": "Not Spicy"
+    }
+]
