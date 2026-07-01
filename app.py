@@ -186,12 +186,15 @@ def submit_contact():
         }
         
         # Read current list and append
-        with open(CONTACTS_FILE, 'r+', encoding='utf-8') as f:
-            contacts = json.load(f)
-            contacts.append(new_inquiry)
-            f.seek(0)
-            json.dump(contacts, f, indent=4)
-            f.truncate()
+        try:
+            with open(CONTACTS_FILE, 'r+', encoding='utf-8') as f:
+                contacts = json.load(f)
+                contacts.append(new_inquiry)
+                f.seek(0)
+                json.dump(contacts, f, indent=4)
+                f.truncate()
+        except (IOError, OSError) as fs_err:
+            print(f"[Warning] Read-only filesystem detected, logging inquiry to console: {new_inquiry}. Error: {fs_err}")
             
         return jsonify({"success": True, "message": "Inquiry submitted successfully"})
     except Exception as e:
@@ -225,12 +228,15 @@ def book_table():
         }
         
         # Read current list and append
-        with open(BOOKINGS_FILE, 'r+', encoding='utf-8') as f:
-            bookings = json.load(f)
-            bookings.append(new_booking)
-            f.seek(0)
-            json.dump(bookings, f, indent=4)
-            f.truncate()
+        try:
+            with open(BOOKINGS_FILE, 'r+', encoding='utf-8') as f:
+                bookings = json.load(f)
+                bookings.append(new_booking)
+                f.seek(0)
+                json.dump(bookings, f, indent=4)
+                f.truncate()
+        except (IOError, OSError) as fs_err:
+            print(f"[Warning] Read-only filesystem detected, logging booking to console: {new_booking}. Error: {fs_err}")
             
         return jsonify({"success": True, "message": "Table booked successfully!"})
     except Exception as e:
