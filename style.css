@@ -1964,7 +1964,7 @@ footer {
 .gallery-card-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(27, 67, 50, 0.85);
+  background: rgba(229, 9, 20, 0.85);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2101,35 +2101,35 @@ footer {
    ======================================================================== */
 .dark-theme {
   --bg-primary: #050505;
-  --bg-secondary: #0D0D0D;
+  --bg-secondary: #0C0C0C;
   --bg-dark: #000000;
-  --bg-card: #15110F;
-  --text-primary: #FFF8ED;
-  --text-secondary: #BDB4A6;
-  --text-light: #FFF8ED;
-  --accent-green: #1B4332;
-  --accent-green-hover: #143728;
-  --accent-green-light: rgba(27, 67, 50, 0.12);
-  --accent-terracotta: #C4654A;
-  --accent-terracotta-hover: #A8553D;
+  --bg-card: #111111;
+  --text-primary: #F5F5F3;
+  --text-secondary: #9A9A96;
+  --text-light: #F5F5F3;
+  --accent-green: #E50914;
+  --accent-green-hover: #C2050F;
+  --accent-green-light: rgba(229, 9, 20, 0.12);
+  --accent-terracotta: #FF3C2E;
+  --accent-terracotta-hover: #E02E20;
   --accent-gold: #F3C42D;
   --accent-gold-light: rgba(243, 196, 45, 0.14);
-  --border-color: #1F2E25;
-  --border-dark: #2A1A15;
-  --glass-bg: rgba(5, 5, 5, 0.86);
+  --border-color: #222222;
+  --border-dark: #1A1A1A;
+  --glass-bg: rgba(8, 8, 8, 0.88);
   --glass-border: rgba(243, 196, 45, 0.14);
-  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.24);
-  --shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.28);
-  --shadow-md: 0 16px 38px rgba(0, 0, 0, 0.34);
-  --shadow-lg: 0 28px 70px rgba(0, 0, 0, 0.48);
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.40);
+  --shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.50);
+  --shadow-md: 0 16px 38px rgba(0, 0, 0, 0.60);
+  --shadow-lg: 0 28px 70px rgba(0, 0, 0, 0.72);
 }
 
 /* Dark theme body — only on pages with .dark-theme class (menu page) */
 .dark-theme body,
 body.menu-page {
   background:
-    radial-gradient(circle at 50% 0%, rgba(27, 67, 50, 0.14), transparent 28rem),
-    linear-gradient(180deg, #050A07 0%, #030805 100%);
+    radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.10), transparent 28rem),
+    linear-gradient(180deg, #060606 0%, #040404 100%);
   color: var(--text-primary);
 }
 
@@ -2138,100 +2138,90 @@ body.menu-page {
   color: var(--text-primary);
 }
 
-.dark-theme p,
-.menu-page p,
-.menu-page .menu-info p,
-.menu-page .dish-desc,
-.menu-page .footer-links a,
-.menu-page .footer-contact-list li {
+p,
+.menu-info p,
+.dish-desc,
+.footer-links a,
+.footer-contact-list li {
   color: var(--text-secondary);
 }
 
-.menu-page::-webkit-scrollbar-track { background: #050505; }
-.menu-page::-webkit-scrollbar-thumb { background: #2A3D2F; }
-.menu-page::-webkit-scrollbar-thumb:hover { background: var(--accent-green); }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #2A2A2A; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-green); }
 
-/* Menu page button overrides */
-.menu-page .btn {
+/* Button overrides */
+.btn {
   border-radius: 999px;
   font-weight: 800;
 }
 
-.menu-page .btn-primary {
-  background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-terracotta) 100%);
   color: #FFF;
 }
 
-.menu-page .btn-primary:hover {
-  background: linear-gradient(135deg, #143728 0%, #1B4332 100%);
-  box-shadow: 0 12px 26px rgba(27, 67, 50, 0.35);
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-green-hover) 0%, var(--accent-terracotta-hover) 100%);
+  box-shadow: 0 12px 26px rgba(229, 9, 20, 0.35);
 }
 
-.menu-page .btn-secondary {
+.btn-secondary {
   color: var(--text-primary);
   border-color: rgba(243, 196, 45, 0.32);
 }
 
-.menu-page .btn-secondary:hover,
-.menu-page .btn-outline-gold:hover {
+.btn-secondary:hover,
+.btn-outline-gold:hover {
   background: var(--accent-gold);
   border-color: var(--accent-gold);
   color: #060606;
 }
 
-/* Dark header for menu page only */
-.menu-page header,
-.menu-page header.scrolled,
-.dark-header,
-.dark-header.scrolled {
-  background-color: rgba(3, 10, 5, 0.94);
+/* Header */
+header,
+header.scrolled {
+  background-color: rgba(0, 0, 0, 0.94);
   border-bottom: 1px solid rgba(243, 196, 45, 0.14);
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.28);
 }
 
-.menu-page .nav-wrapper {
+.nav-wrapper {
   height: 5rem;
 }
 
-.dark-header .logo,
-.menu-page .logo {
+.logo {
   color: #FFF !important;
 }
 
-.menu-page .logo span,
-.dark-header .logo span {
+.logo span {
   color: var(--accent-gold);
 }
 
-.dark-header .nav-links a,
-.menu-page .nav-links a {
+.nav-links a {
   color: rgba(255, 248, 237, 0.76) !important;
   font-weight: 700;
 }
 
-.dark-header .nav-links a::after,
-.menu-page .nav-links a::after {
+.nav-links a::after {
   background: var(--accent-gold);
 }
 
-.dark-header .nav-links a:hover,
-.dark-header .nav-links a.active,
-.menu-page .nav-links a:hover,
-.menu-page .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
   color: #FFF !important;
 }
 
-.menu-page .menu-btn span,
-.dark-menu-btn span {
+.menu-btn span {
   background: #FFF !important;
 }
 
 /* ============================================================
-   HERO SECTION — Woodlands green brand overlay
+   HERO SECTION — Woodlands black brand overlay
    ============================================================ */
 .hero {
   background-image:
-    linear-gradient(to right, rgba(27, 43, 34, 0.9) 0%, rgba(27, 43, 34, 0.55) 60%, rgba(27, 43, 34, 0.25) 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.55) 60%, rgba(0, 0, 0, 0.25) 100%),
     url('assets/hero.png');
   background-size: cover;
   background-position: center center;
@@ -2242,22 +2232,22 @@ body.menu-page {
 
 .about-hero {
   background-image:
-    linear-gradient(180deg, rgba(27, 43, 34, 0.88), rgba(27, 43, 34, 0.72));
-  background-color: #1B2A22;
+    linear-gradient(180deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.72));
+  background-color: #050505;
 }
 
-/* Dark dish cards — scoped to menu page */
-.menu-page .menu-card,
-.menu-page .dish-card,
-.menu-page .amenity-card,
-.menu-page .about-highlights-grid > div {
-  background: linear-gradient(180deg, #0F1A13 0%, #0A0F0C 100%) !important;
+/* Dark dish cards */
+.menu-card,
+.dish-card,
+.amenity-card,
+.about-highlights-grid > div {
+  background: linear-gradient(180deg, #111111 0%, #050505 100%) !important;
   border-color: rgba(243, 196, 45, 0.15) !important;
   box-shadow: var(--shadow-sm);
 }
 
-.menu-page .menu-card:hover,
-.menu-page .dish-card:hover {
+.menu-card:hover,
+.dish-card:hover {
   border-color: rgba(243, 196, 45, 0.50) !important;
   box-shadow: var(--shadow-md);
 }
@@ -2281,7 +2271,7 @@ h2 span,
 .amenity-icon,
 .location-details-panel h4,
 .map-caption {
-  color: var(--accent-green) !important;
+  color: var(--accent-gold) !important;
 }
 
 .menu-badge,
@@ -2359,7 +2349,7 @@ textarea.form-control {
 }
 
 .menu-page .social-icon {
-  background: #111D15;
+  background: #222222;
 }
 
 /* Menu showcase */
