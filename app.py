@@ -136,6 +136,10 @@ def about_page():
 def menu_page():
     return send_from_directory('.', 'menu.html')
 
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204
+
 # API Endpoints
 @app.route('/api/status', methods=['GET'])
 def api_status():

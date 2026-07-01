@@ -36,7 +36,7 @@
         "name": "Idli Sambar",
         "price": "₹70",
         "category": "breakfast",
-        "image": "assets/Medu_Vada.png",
+        "image": "assets/idli.png",
         "desc": "Steamed soft rice and lentil cakes served with spicy vegetable sambar and tangy coconut chutney. A nutritious and authentic South Indian breakfast.",
         "ingredients": [
             "Rice",
@@ -84,7 +84,7 @@
         "name": "South Indian Filter Coffee",
         "price": "₹40",
         "category": "beverages",
-        "image": "assets/dining.png",
+        "image": "assets/South_Indian_Filter_Coffee.png",
         "desc": "Strong, aromatic South Indian coffee freshly brewed with a traditional metal filter and steamed milk. The perfect companion to any meal.",
         "ingredients": [
             "Coffee Beans",
@@ -100,7 +100,7 @@
         "name": "Paneer Butter Masala",
         "price": "₹150",
         "category": "meals",
-        "image": "assets/South_Indian_Meals.png",
+        "image": "assets/Paneer_Butter_Masala.png",
         "desc": "Soft paneer cubes in a creamy tomato and butter sauce with aromatic spices, served with basmati rice or freshly made roti.",
         "ingredients": [
             "Paneer",
@@ -117,7 +117,7 @@
         "name": "Gulab Jamun",
         "price": "₹50",
         "category": "desserts",
-        "image": "assets/dining.png",
+        "image": "assets/Gulab_Jamun.png",
         "desc": "Soft, spongy milk powder balls soaked in fragrant rose and cardamom flavored sugar syrup, served warm. The perfect sweet ending to your meal.",
         "ingredients": [
             "Milk Powder",

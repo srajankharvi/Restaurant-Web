@@ -594,6 +594,10 @@ function initCarousel() {
    LOAD MENU DATA FROM API (with local fallback)
    ========================================================================== */
 async function loadMenuData() {
+  if (window.location.protocol === 'file:') {
+    console.warn("Running in local file mode (file://). Using local mock database fallback.");
+    return;
+  }
   try {
     const res = await fetch('/api/menu');
     if (res.ok) {
