@@ -11,95 +11,119 @@ MENU_FILE = os.path.join(DATA_DIR, 'menu.json')
 CONTACTS_FILE = os.path.join(DATA_DIR, 'contacts.json')
 BOOKINGS_FILE = os.path.join(DATA_DIR, 'bookings.json')
 
-# Initial default menu data mapping to local assets
+# Pegs Restaurant — Multi-Cuisine Menu
 DEFAULT_MENU = [
     {
-        "id": 0,
-        "name": "Masala Dosa",
-        "price": "₹80",
-        "category": "dosa",
-        "image": "assets/Masala_Dosa.png",
-        "desc": "Crispy, golden dosa filled with spiced potato and served with hot sambar, coconut chutney, and filter coffee. A classic South Indian breakfast specialty.",
-        "ingredients": ["Rice", "Potato", "Spices", "Ghee"],
-        "spice": 2,
-        "spiceLabel": "Medium"
-    },
-    {
-        "id": 1,
-        "name": "Medu Vada",
-        "price": "₹60",
-        "category": "breakfast",
-        "image": "assets/Medu_Vada.png",
-        "desc": "Soft, fluffy lentil fritters with a delicate hole in the center, served with hot sambar and tangy coconut chutney. A traditional South Indian delight.",
-        "ingredients": ["Urad Dal", "Cumin", "Green Chili", "Asafetida"],
-        "spice": 1,
-        "spiceLabel": "Mild"
-    },
-    {
-        "id": 2,
-        "name": "Idli Sambar",
-        "price": "₹70",
-        "category": "breakfast",
-        "image": "assets/Medu_Vada.png",
-        "desc": "Steamed soft rice and lentil cakes served with spicy vegetable sambar and tangy coconut chutney. A nutritious and authentic South Indian breakfast.",
-        "ingredients": ["Rice", "Urad Dal", "Spices", "Vegetables"],
-        "spice": 2,
-        "spiceLabel": "Medium"
-    },
-    {
-        "id": 3,
-        "name": "South Indian Meals",
-        "price": "₹120",
-        "category": "meals",
-        "image": "assets/South_Indian_Meals.png",
-        "desc": "Traditional vegetarian meal with steamed rice, sambar, rasam, vegetable curry, pappad, pickle, and curd. A complete and wholesome dining experience.",
-        "ingredients": ["Rice", "Sambar", "Rasam", "Vegetables"],
-        "spice": 1,
-        "spiceLabel": "Mild"
-    },
-    {
-        "id": 4,
-        "name": "Ghee Roast Dosa",
-        "price": "₹100",
-        "category": "dosa",
-        "image": "assets/Ghee_Roast_Dosa.png",
-        "desc": "Crispy dosa cooked in pure ghee with a crunchy exterior, served with sambar, chutney, and hot filter coffee. A rich and indulgent treat.",
-        "ingredients": ["Rice", "Ghee", "Butter", "Potatoes"],
-        "spice": 1,
-        "spiceLabel": "Mild"
-    },
-    {
-        "id": 5,
-        "name": "South Indian Filter Coffee",
-        "price": "₹40",
-        "category": "beverages",
-        "image": "assets/South_Indian_Filter_Coffee.png",
-        "desc": "Strong, aromatic South Indian coffee freshly brewed with a traditional metal filter and steamed milk. The perfect companion to any meal.",
-        "ingredients": ["Coffee Beans", "Milk", "Sugar", "Chicory"],
-        "spice": 0,
-        "spiceLabel": "Not Spicy"
-    },
-    {
-        "id": 6,
-        "name": "Paneer Butter Masala",
-        "price": "₹150",
-        "category": "meals",
+        "id": 0, "name": "Paneer Tikka", "price": "₹280", "category": "starters",
         "image": "assets/Paneer_Butter_Masala.png",
-        "desc": "Soft paneer cubes in a creamy tomato and butter sauce with aromatic spices, served with basmati rice or freshly made roti.",
-        "ingredients": ["Paneer", "Tomato", "Cream", "Butter", "Spices"],
-        "spice": 1,
-        "spiceLabel": "Mild"
+        "desc": "Marinated cottage cheese cubes grilled to perfection in a tandoor with bell peppers and onions. Served with mint chutney.",
+        "ingredients": ["Paneer", "Bell Pepper", "Yogurt", "Spices"],
+        "spice": 2, "spiceLabel": "Medium"
     },
     {
-        "id": 7,
-        "name": "Gulab Jamun",
-        "price": "₹50",
-        "category": "desserts",
+        "id": 1, "name": "Crispy Veg Spring Rolls", "price": "₹220", "category": "starters",
+        "image": "assets/Medu_Vada.png",
+        "desc": "Golden-fried crispy rolls stuffed with a savory mix of fresh vegetables and aromatic herbs. Served with sweet chili sauce.",
+        "ingredients": ["Vegetables", "Spring Roll Sheets", "Herbs", "Soy"],
+        "spice": 1, "spiceLabel": "Mild"
+    },
+    {
+        "id": 2, "name": "Masala Dosa", "price": "₹120", "category": "indian",
+        "image": "assets/Masala_Dosa.png",
+        "desc": "Crispy golden dosa filled with spiced potato masala, served with sambar and coconut chutney. A South Indian classic.",
+        "ingredients": ["Rice", "Potato", "Spices", "Ghee"],
+        "spice": 2, "spiceLabel": "Medium"
+    },
+    {
+        "id": 3, "name": "Butter Chicken", "price": "₹380", "category": "indian",
+        "image": "assets/Paneer_Butter_Masala.png",
+        "desc": "Tender chicken pieces in a rich, creamy tomato-butter sauce with aromatic spices. Paired with naan or jeera rice.",
+        "ingredients": ["Chicken", "Tomato", "Cream", "Butter", "Spices"],
+        "spice": 1, "spiceLabel": "Mild"
+    },
+    {
+        "id": 4, "name": "South Indian Meals", "price": "₹180", "category": "indian",
+        "image": "assets/South_Indian_Meals.png",
+        "desc": "Traditional vegetarian thali with steamed rice, sambar, rasam, two vegetable curries, papad, pickle, and curd.",
+        "ingredients": ["Rice", "Sambar", "Rasam", "Vegetables"],
+        "spice": 1, "spiceLabel": "Mild"
+    },
+    {
+        "id": 5, "name": "Ghee Roast Dosa", "price": "₹140", "category": "indian",
+        "image": "assets/Ghee_Roast_Dosa.png",
+        "desc": "Crispy dosa generously cooked in pure ghee with a crunchy exterior. Served with sambar and chutney.",
+        "ingredients": ["Rice", "Ghee", "Butter", "Potatoes"],
+        "spice": 1, "spiceLabel": "Mild"
+    },
+    {
+        "id": 6, "name": "Chilli Chicken", "price": "₹340", "category": "chinese",
+        "image": "assets/Paneer_Butter_Masala.png",
+        "desc": "Succulent chicken tossed with green chilies, bell peppers, and soy sauce in a fiery Indo-Chinese preparation.",
+        "ingredients": ["Chicken", "Bell Pepper", "Soy Sauce", "Chili"],
+        "spice": 3, "spiceLabel": "Spicy"
+    },
+    {
+        "id": 7, "name": "Veg Manchurian", "price": "₹260", "category": "chinese",
+        "image": "assets/Medu_Vada.png",
+        "desc": "Deep-fried vegetable balls tossed in a tangy, spicy Manchurian gravy with spring onions and soy sauce.",
+        "ingredients": ["Mixed Veg", "Corn Flour", "Soy Sauce", "Garlic"],
+        "spice": 2, "spiceLabel": "Medium"
+    },
+    {
+        "id": 8, "name": "Hakka Noodles", "price": "₹240", "category": "chinese",
+        "image": "assets/South_Indian_Meals.png",
+        "desc": "Stir-fried noodles tossed with crunchy vegetables, soy sauce, and aromatic spices. Available veg and chicken.",
+        "ingredients": ["Noodles", "Vegetables", "Soy Sauce", "Sesame Oil"],
+        "spice": 1, "spiceLabel": "Mild"
+    },
+    {
+        "id": 9, "name": "Grilled Chicken Steak", "price": "₹420", "category": "continental",
+        "image": "assets/Paneer_Butter_Masala.png",
+        "desc": "Juicy herb-marinated chicken breast grilled to perfection, served with mashed potatoes and sauteed vegetables.",
+        "ingredients": ["Chicken", "Herbs", "Potato", "Vegetables"],
+        "spice": 0, "spiceLabel": "Not Spicy"
+    },
+    {
+        "id": 10, "name": "Pasta Alfredo", "price": "₹340", "category": "continental",
+        "image": "assets/South_Indian_Meals.png",
+        "desc": "Creamy penne pasta in a rich parmesan alfredo sauce with garlic, mushrooms, and fresh herbs.",
+        "ingredients": ["Pasta", "Cream", "Parmesan", "Garlic", "Mushrooms"],
+        "spice": 0, "spiceLabel": "Not Spicy"
+    },
+    {
+        "id": 11, "name": "South Indian Filter Coffee", "price": "₹60", "category": "beverages",
+        "image": "assets/South_Indian_Filter_Coffee.png",
+        "desc": "Strong, aromatic coffee freshly brewed with a traditional metal filter and steamed milk. The perfect pick-me-up.",
+        "ingredients": ["Coffee Beans", "Milk", "Sugar", "Chicory"],
+        "spice": 0, "spiceLabel": "Not Spicy"
+    },
+    {
+        "id": 12, "name": "Mango Lassi", "price": "₹120", "category": "beverages",
+        "image": "assets/South_Indian_Filter_Coffee.png",
+        "desc": "Refreshing yogurt-based smoothie blended with ripe Alphonso mangoes, cardamom, and a touch of honey.",
+        "ingredients": ["Yogurt", "Mango", "Cardamom", "Honey"],
+        "spice": 0, "spiceLabel": "Not Spicy"
+    },
+    {
+        "id": 13, "name": "Fresh Lime Soda", "price": "₹80", "category": "beverages",
+        "image": "assets/South_Indian_Filter_Coffee.png",
+        "desc": "Zesty fresh lime juice with sparkling soda, a pinch of salt, and a hint of cumin. Sweet or salted.",
+        "ingredients": ["Lime", "Soda", "Salt", "Cumin"],
+        "spice": 0, "spiceLabel": "Not Spicy"
+    },
+    {
+        "id": 14, "name": "Gulab Jamun", "price": "₹120", "category": "desserts",
         "image": "assets/Gulab_Jamun.png",
-        "desc": "Soft, spongy milk powder balls soaked in fragrant rose and cardamom flavored sugar syrup, served warm. The perfect sweet ending to your meal.",
-        "ingredients": ["Milk Powder", "Rose Water", "Cardamom", "Sugar Syrup"],
-        "spice": 0,
-        "spiceLabel": "Not Spicy"
+        "desc": "Soft, spongy milk-powder dumplings soaked in rose-cardamom sugar syrup, served warm. A classic Indian sweet.",
+        "ingredients": ["Milk Powder", "Rose Water", "Cardamom", "Sugar"],
+        "spice": 0, "spiceLabel": "Not Spicy"
+    },
+    {
+        "id": 15, "name": "Rasmalai", "price": "₹150", "category": "desserts",
+        "image": "assets/Gulab_Jamun.png",
+        "desc": "Delicate cottage cheese patties immersed in sweetened, saffron-flavored milk garnished with pistachios and almonds.",
+        "ingredients": ["Paneer", "Milk", "Saffron", "Pistachios"],
+        "spice": 0, "spiceLabel": "Not Spicy"
     }
 ]
 
@@ -108,9 +132,9 @@ def init_db():
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR, exist_ok=True)
         
-    if not os.path.exists(MENU_FILE):
-        with open(MENU_FILE, 'w', encoding='utf-8') as f:
-            json.dump(DEFAULT_MENU, f, indent=4, ensure_ascii=False)
+    # Always overwrite menu to keep it synced with code updates
+    with open(MENU_FILE, 'w', encoding='utf-8') as f:
+        json.dump(DEFAULT_MENU, f, indent=4, ensure_ascii=False)
             
     if not os.path.exists(CONTACTS_FILE):
         with open(CONTACTS_FILE, 'w', encoding='utf-8') as f:
@@ -146,8 +170,9 @@ def api_status():
     """Health check endpoint."""
     return jsonify({
         "status": "ok",
-        "restaurant": "Woodlands Restaurant",
-        "location": "Udupi, Karnataka"
+        "hotel": "Hotel Rays Inn",
+        "restaurant": "Pegs Restaurant",
+        "location": "Dharmastala, Karnataka"
     })
 
 @app.route('/api/menu', methods=['GET'])
@@ -202,7 +227,7 @@ def submit_contact():
 
 @app.route('/api/book-table', methods=['POST'])
 def book_table():
-    """Record a table reservation request."""
+    """Record a table reservation or room booking request."""
     try:
         data = request.get_json() or {}
         
@@ -238,7 +263,7 @@ def book_table():
         except (IOError, OSError) as fs_err:
             print(f"[Warning] Read-only filesystem detected, logging booking to console: {new_booking}. Error: {fs_err}")
             
-        return jsonify({"success": True, "message": "Table booked successfully!"})
+        return jsonify({"success": True, "message": "Booking confirmed successfully!"})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

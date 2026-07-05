@@ -1,531 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu | Woodlands Restaurant - South Indian Vegetarian Cuisine</title>
-  <meta name="description"
-    content="Browse Woodlands Restaurant's complete digital menu. Authentic South Indian vegetarian dishes including dosas, idlis, filter coffee, meals and more in Udupi.">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pegs Restaurant at Hotel Rays Inn — Explore our multi-cuisine menu featuring Continental, Chinese, Mughalai, and Vegetarian delights.">
+    <title>Pegs Restaurant | Hotel Rays Inn — Multi-Cuisine Dining</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu-premium.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
 </head>
+<body>
 
-<body class="menu-page dark-theme">
-
-  <!-- ==================== PREMIUM LOADING SCREEN ==================== -->
-  <div class="loading-screen" id="loading-screen">
-    <div class="loading-logo">Woodlands<span>.</span></div>
-    <div class="loading-bar"></div>
-  </div>
-
-  <!-- ==================== SCROLL PROGRESS ==================== -->
-  <div class="scroll-progress" id="scroll-progress"></div>
-
-  <!-- Page transition overlay -->
-  <div class="page-transition-overlay" id="page-transition-overlay"></div>
-
-  <!-- ==================== CUSTOM CURSOR (desktop) ==================== -->
-  <div class="cursor-dot" id="cursor-dot"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
-
-  <header id="header">
-    <div class="container nav-wrapper">
-      <a href="/" class="logo" id="nav-logo">Woodlands<span>.</span></a>
-      <nav>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/menu" class="active">Menu</a></li>
-        </ul>
-      </nav>
-      <div class="header-actions">
-        <button class="btn btn-primary" onclick="openBookingModal()">Book Table</button>
-      </div>
-      <button class="menu-btn" id="menu-btn" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- ==================== 1. HERO SPOTLIGHT & CAROUSEL ==================== -->
-  <section class="menu-hero-showcase">
-    <div class="container">
-      <div class="menu-hero-categories" aria-label="Menu highlights">
-        <a href="#full-menu" class="hero-menu-chip active">Breakfast</a>
-        <a href="#full-menu" class="hero-menu-chip">Dosas</a>
-        <a href="#full-menu" class="hero-menu-chip">Meals</a>
-        <a href="#full-menu" class="hero-menu-chip">Rice</a>
-        <a href="#full-menu" class="hero-menu-chip">Beverages</a>
-        <a href="#full-menu" class="hero-menu-chip">Desserts</a>
-      </div>
-      <div class="menu-hero-grid">
-
-        <!-- Left Side: Featured dish details -->
-        <div class="featured-dish-info" id="featured-info">
-          <span class="featured-tag" id="featured-tag">SIGNATURE SPECIAL</span>
-          <h1 class="featured-title" id="featured-title">Masala Dosa</h1>
-          <p class="featured-desc" id="featured-desc">Crispy, golden dosa filled with spiced potato and served with hot
-            sambar, coconut chutney, and filter coffee on the side.</p>
-          <div class="featured-meta">
-            <span class="featured-price" id="featured-price">₹80</span>
-            <button class="btn btn-primary" id="btn-featured-view" style="font-size:0.85rem; padding:0.65rem 1.25rem;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-              View Details
-            </button>
-            <button class="btn btn-outline-gold" style="font-size:0.85rem; padding:0.65rem 1.25rem;"
-              onclick="openBookingModal()">Reserve Table</button>
-          </div>
-        </div>
-
-        <!-- Right Side: Spotlight & Floating Dish -->
-        <div class="featured-dish-visual">
-          <div class="dish-orbit orbit-left-large">
-            <img src="assets/South_Indian_Meals.png" alt="South Indian Meals" loading="lazy" width="132" height="132">
-          </div>
-          <div class="dish-orbit orbit-left-small">
-            <img src="assets/Medu_Vada.png" alt="Medu Vada" loading="lazy" width="70" height="70">
-          </div>
-          <div class="dish-orbit orbit-right-large">
-            <img src="assets/Ghee_Roast_Dosa.png" alt="Ghee Roast Dosa" loading="lazy" width="124" height="124">
-          </div>
-          <div class="dish-orbit orbit-right-small">
-            <img src="assets/South_Indian_Filter_Coffee.png" alt="South Indian Filter Coffee" loading="lazy" width="76"
-              height="76">
-          </div>
-          <div class="spotlight-circle"></div>
-          <div class="floating-dish-wrapper">
-            <img src="assets/Masala_Dosa.png" alt="Featured Masala Dosa" class="floating-dish-img" id="featured-img"
-              width="300" height="300">
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Dish Carousel Row -->
-      <div class="dish-carousel-container">
-        <button class="carousel-btn prev-btn" id="carousel-prev" aria-label="Previous Dish">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
-        <div class="carousel-track-viewport">
-          <div class="carousel-track" id="carousel-track">
-            <div class="carousel-item active" data-dish-id="0">
-              <img src="assets/Masala_Dosa.png" alt="Masala Dosa" loading="lazy" width="80" height="80">
-              <span>Masala Dosa</span>
-            </div>
-            <div class="carousel-item" data-dish-id="1">
-              <img src="assets/Medu_Vada.png" alt="Medu Vada" loading="lazy" width="80" height="80">
-              <span>Medu Vada</span>
-            </div>
-            <div class="carousel-item" data-dish-id="2">
-              <img src="assets/idli.png" alt="Idli Sambar" loading="lazy" width="80" height="80">
-              <span>Idli Sambar</span>
-            </div>
-            <div class="carousel-item" data-dish-id="3">
-              <img src="assets/South_Indian_Meals.png" alt="South Indian Meals" loading="lazy" width="80" height="80">
-              <span>South Indian Meals</span>
-            </div>
-            <div class="carousel-item" data-dish-id="4">
-              <img src="assets/Ghee_Roast_Dosa.png" alt="Ghee Roast Dosa" loading="lazy" width="80" height="80">
-              <span>Ghee Roast Dosa</span>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-btn next-btn" id="carousel-next" aria-label="Next Dish">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== 2. STICKY CATEGORIES & FULL GRID ==================== -->
-  <section class="digital-menu dark-menu-section" id="full-menu" style="padding-top: 3.5rem;">
-    <div class="container">
-      <div style="text-align:center; max-width:600px; margin:0 auto 2rem;">
-        <h2 style="color: #FFF;"><span>Our Specialties</span>Browse Full Menu</h2>
-        <p style="color: rgba(255,255,255,0.6);">Filter by category and click any card to read details, key ingredients,
-          and customize spice levels.</p>
-      </div>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">RAYS <span>INN</span></div>
+        <div class="preloader-line"></div>
     </div>
 
-    <!-- Sticky Navigation -->
-    <div class="sticky-menu-nav dark-sticky-nav" id="sticky-menu-nav">
-      <div class="container">
-        <div class="category-nav-scroll" id="category-nav-scroll">
-          <!-- Sliding indicator will be injected by JS -->
-          <button class="menu-category-btn active" data-cat="all">All</button>
-          <button class="menu-category-btn" data-cat="breakfast">Breakfast</button>
-          <button class="menu-category-btn" data-cat="dosa">Dosas</button>
-          <button class="menu-category-btn" data-cat="meals">Meals</button>
-          <button class="menu-category-btn" data-cat="rice">Rice</button>
-          <button class="menu-category-btn" data-cat="beverages">Beverages</button>
-          <button class="menu-category-btn" data-cat="desserts">Desserts</button>
-        </div>
-      </div>
-    </div>
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
 
-    <div class="container">
-      <div class="dish-grid" id="dish-grid">
-
-        <!-- Dish 1 -->
-        <div class="dish-card dark-dish-card" data-cat="dosa" data-dish="0">
-          <div class="dish-card-img">
-            <span class="dish-category-badge cat-dosa">Dosa</span>
-            <img src="assets/Masala_Dosa.png" alt="Masala Dosa" loading="lazy" width="300" height="200">
-          </div>
-          <div class="dish-card-body">
-            <div class="dish-card-top">
-              <h3>Masala Dosa</h3><span class="dish-price" style="color: var(--accent-gold);">₹80</span>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <div>
+                    <div class="nav-logo-text">Rays <span>Inn</span></div>
+                    <div class="nav-logo-accent">Boarding & Lodging</div>
+                </div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/menu" class="active">Restaurant</a>
+                <a href="/#rooms">Rooms</a>
+                <a href="/#contact">Contact</a>
+                <a href="/#book" class="nav-cta">Book Now</a>
             </div>
-            <p class="dish-desc">Crispy, golden dosa filled with spiced potato and served with hot sambar, coconut
-              chutney, and filter coffee.</p>
-            <div class="spice-level"><span class="spice-label" style="color: rgba(255,255,255,0.5);">Spice</span><span
-                class="spice-dot active"></span><span class="spice-dot active"></span><span class="spice-dot"></span>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <div class="ingredient-tags"><span class="ingredient-tag dark-tag">Rice</span><span
-                class="ingredient-tag dark-tag">Potato</span><span class="ingredient-tag dark-tag">Spices</span></div>
-            <div class="dish-card-actions"><button class="btn-view-details dark-btn-details"><svg width="14" height="14"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>View Details</button></div>
-          </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--  PREMIUM MENU SHOWCASE (Carousel Hero) -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="menu-showcase" id="menuShowcase">
+        <div class="menu-showcase-bg"></div>
+
+        <!-- Floating gold particles -->
+        <div class="menu-particles">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
         </div>
 
-        <!-- Dish 2 -->
-        <div class="dish-card dark-dish-card" data-cat="breakfast" data-dish="1">
-          <div class="dish-card-img">
-            <span class="dish-category-badge cat-breakfast">Breakfast</span>
-            <img src="assets/Medu_Vada.png" alt="Medu Vada" loading="lazy" width="300" height="200">
-          </div>
-          <div class="dish-card-body">
-            <div class="dish-card-top">
-              <h3>Medu Vada</h3><span class="dish-price" style="color: var(--accent-gold);">₹60</span>
+        <!-- Category Tabs -->
+        <div class="menu-showcase-tabs">
+            <button class="showcase-tab active" data-cat="all">All Dishes</button>
+            <button class="showcase-tab" data-cat="starters">Starters</button>
+            <button class="showcase-tab" data-cat="mains">Main Course</button>
+            <button class="showcase-tab" data-cat="chinese">Chinese</button>
+            <button class="showcase-tab" data-cat="continental">Continental</button>
+            <button class="showcase-tab" data-cat="desserts">Desserts</button>
+            <button class="showcase-tab" data-cat="beverages">Beverages</button>
+        </div>
+
+        <!-- Carousel -->
+        <div class="menu-carousel-wrapper">
+            <button class="carousel-arrow carousel-arrow-left" id="carouselPrev" aria-label="Previous">‹</button>
+            
+            <div class="menu-carousel" id="menuCarousel">
+                <!-- Circular orbiting items — filled by JS -->
             </div>
-            <p class="dish-desc">Soft, fluffy lentil fritters with a delicate hole in the center, served with hot sambar
-              and coconut chutney.</p>
-            <div class="spice-level"><span class="spice-label" style="color: rgba(255,255,255,0.5);">Spice</span><span
-                class="spice-dot active"></span><span class="spice-dot"></span><span class="spice-dot"></span></div>
-            <div class="ingredient-tags"><span class="ingredient-tag dark-tag">Urad Dal</span><span
-                class="ingredient-tag dark-tag">Cumin</span><span class="ingredient-tag dark-tag">Green Chili</span>
+
+            <button class="carousel-arrow carousel-arrow-right" id="carouselNext" aria-label="Next">›</button>
+        </div>
+
+        <!-- Featured Dish (center stage) -->
+        <div class="featured-dish" id="featuredDish">
+            <div class="featured-dish-image-wrap">
+                <div class="featured-dish-glow"></div>
+                <img src="assets/food/butter_chicken.png" alt="Featured Dish" id="featuredImg" class="featured-dish-img">
+                <div class="featured-dish-ring"></div>
             </div>
-            <div class="dish-card-actions"><button class="btn-view-details dark-btn-details"><svg width="14" height="14"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>View Details</button></div>
-          </div>
         </div>
 
-        <!-- Dish 3 -->
-        <div class="dish-card dark-dish-card" data-cat="breakfast" data-dish="2">
-          <div class="dish-card-img">
-            <span class="dish-category-badge cat-breakfast">Breakfast</span>
-            <img src="assets/idli.png" alt="Idli Sambar" loading="lazy" width="300" height="200">
-          </div>
-          <div class="dish-card-body">
-            <div class="dish-card-top">
-              <h3>Idli Sambar</h3><span class="dish-price" style="color: var(--accent-gold);">₹70</span>
+        <!-- Dish Details -->
+        <div class="featured-dish-info" id="featuredInfo">
+            <h2 class="featured-dish-name" id="featuredName">Butter Chicken</h2>
+            <p class="featured-dish-desc" id="featuredDesc">Tender chicken pieces in a rich, creamy tomato-butter sauce with aromatic North Indian spices. Served with butter naan.</p>
+            
+            <div class="featured-dish-meta">
+                <div class="featured-meta-item">
+                    <span class="meta-label">Price</span>
+                    <span class="meta-value" id="featuredPrice">₹380</span>
+                </div>
+                <div class="featured-meta-divider"></div>
+                <div class="featured-meta-item">
+                    <span class="meta-label">Spice Level</span>
+                    <span class="meta-value spice-indicator" id="featuredSpice">
+                        <span class="spice-dot active"></span>
+                        <span class="spice-dot"></span>
+                        <span class="spice-dot"></span>
+                    </span>
+                </div>
+                <div class="featured-meta-divider"></div>
+                <div class="featured-meta-item">
+                    <span class="meta-label">Nutrition</span>
+                    <span class="meta-value" id="featuredCal">520 Kcal</span>
+                </div>
             </div>
-            <p class="dish-desc">Steamed soft rice and lentil cakes served with spicy vegetable sambar and tangy coconut
-              chutney.</p>
-            <div class="spice-level"><span class="spice-label" style="color: rgba(255,255,255,0.5);">Spice</span><span
-                class="spice-dot active"></span><span class="spice-dot active"></span><span class="spice-dot"></span>
+
+            <div class="featured-dish-ingredients" id="featuredIngredients">
+                <span class="ingredient-tag">Chicken</span>
+                <span class="ingredient-tag">Tomato</span>
+                <span class="ingredient-tag">Cream</span>
+                <span class="ingredient-tag">Butter</span>
+                <span class="ingredient-tag">Spices</span>
             </div>
-            <div class="ingredient-tags"><span class="ingredient-tag dark-tag">Rice</span><span
-                class="ingredient-tag dark-tag">Urad Dal</span><span class="ingredient-tag dark-tag">Spices</span></div>
-            <div class="dish-card-actions"><button class="btn-view-details dark-btn-details"><svg width="14" height="14"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>View Details</button></div>
-          </div>
-        </div>
 
-        <!-- Dish 4 -->
-        <div class="dish-card dark-dish-card" data-cat="meals" data-dish="3">
-          <div class="dish-card-img">
-            <span class="dish-category-badge cat-meals">Meals</span>
-            <img src="assets/South_Indian_Meals.png" alt="South Indian Meals" loading="lazy" width="300" height="200">
-          </div>
-          <div class="dish-card-body">
-            <div class="dish-card-top">
-              <h3>South Indian Meals</h3><span class="dish-price" style="color: var(--accent-gold);">₹120</span>
+            <div class="featured-dish-actions">
+                <a href="/#contact" class="btn btn-primary">Reserve a Table <span class="btn-icon">→</span></a>
+                <a href="tel:+916366951126" class="btn btn-dark-outline">📞 Order Now</a>
             </div>
-            <p class="dish-desc">Traditional vegetarian meal with steamed rice, sambar, rasam, vegetable curry, pappad,
-              pickle, and curd.</p>
-            <div class="spice-level"><span class="spice-label" style="color: rgba(255,255,255,0.5);">Spice</span><span
-                class="spice-dot active"></span><span class="spice-dot"></span><span class="spice-dot"></span></div>
-            <div class="ingredient-tags"><span class="ingredient-tag dark-tag">Rice</span><span
-                class="ingredient-tag dark-tag">Sambar</span><span class="ingredient-tag dark-tag">Rasam</span></div>
-            <div class="dish-card-actions"><button class="btn-view-details dark-btn-details"><svg width="14" height="14"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>View Details</button></div>
-          </div>
         </div>
 
-        <!-- Dish 5 -->
-        <div class="dish-card dark-dish-card" data-cat="dosa" data-dish="4">
-          <div class="dish-card-img">
-            <span class="dish-category-badge cat-dosa">Dosa</span>
-            <img src="assets/Ghee_Roast_Dosa.png" alt="Ghee Roast Dosa" loading="lazy" width="300" height="200">
-          </div>
-          <div class="dish-card-body">
-            <div class="dish-card-top">
-              <h3>Ghee Roast Dosa</h3><span class="dish-price" style="color: var(--accent-gold);">₹100</span>
+        <!-- Also available note -->
+        <div class="featured-also" id="featuredAlso">
+            <p>Also available as a combo meal with rice, naan, and dessert</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--  FULL MENU GRID (Scrollable)           -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="section section-alt" id="fullMenu">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Our Complete Menu</span>
+                <h2 class="section-title">Explore Every Flavour</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">Browse our full selection of hand-crafted dishes from across the globe, prepared fresh in our kitchen daily.</p>
             </div>
-            <p class="dish-desc">Crispy dosa cooked in pure ghee with a crunchy exterior, served with sambar, chutney,
-              and filter coffee.</p>
-            <div class="spice-level"><span class="spice-label" style="color: rgba(255,255,255,0.5);">Spice</span><span
-                class="spice-dot active"></span><span class="spice-dot"></span><span class="spice-dot"></span></div>
-            <div class="ingredient-tags"><span class="ingredient-tag dark-tag">Rice</span><span
-                class="ingredient-tag dark-tag">Ghee</span><span class="ingredient-tag dark-tag">Butter</span></div>
-            <div class="dish-card-actions"><button class="btn-view-details dark-btn-details"><svg width="14" height="14"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>View Details</button></div>
-          </div>
-        </div>
 
-        <!-- Dish 6 -->
-        <div class="dish-card dark-dish-card" data-cat="beverages" data-dish="5">
-          <div class="dish-card-img">
-            <span class="dish-category-badge cat-beverages">Beverages</span>
-            <img src="assets/South_Indian_Filter_Coffee.png" alt="Filter Coffee" loading="lazy" width="300"
-              height="200">
-          </div>
-          <div class="dish-card-body">
-            <div class="dish-card-top">
-              <h3>South Indian Filter Coffee</h3><span class="dish-price" style="color: var(--accent-gold);">₹40</span>
+            <!-- Grid Filter Tabs -->
+            <div class="menu-filters reveal" id="gridFilters">
+                <button class="menu-filter-btn active" data-filter="all">All</button>
+                <button class="menu-filter-btn" data-filter="starters">Starters</button>
+                <button class="menu-filter-btn" data-filter="mains">Main Course</button>
+                <button class="menu-filter-btn" data-filter="chinese">Chinese</button>
+                <button class="menu-filter-btn" data-filter="continental">Continental</button>
+                <button class="menu-filter-btn" data-filter="desserts">Desserts</button>
+                <button class="menu-filter-btn" data-filter="beverages">Beverages</button>
             </div>
-            <p class="dish-desc">Strong, aromatic South Indian coffee freshly brewed with a traditional coffee filter
-              and steamed milk.</p>
-            <div class="spice-level"><span class="spice-label" style="color: rgba(255,255,255,0.5);">Spice</span><span
-                class="spice-dot"></span><span class="spice-dot"></span><span class="spice-dot"></span></div>
-            <div class="ingredient-tags"><span class="ingredient-tag dark-tag">Coffee</span><span
-                class="ingredient-tag dark-tag">Milk</span><span class="ingredient-tag dark-tag">Sugar</span></div>
-            <div class="dish-card-actions"><button class="btn-view-details dark-btn-details"><svg width="14" height="14"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>View Details</button></div>
-          </div>
-        </div>
 
-        <!-- Dish 7 -->
-        <div class="dish-card dark-dish-card" data-cat="meals" data-dish="6">
-          <div class="dish-card-img">
-            <span class="dish-category-badge cat-meals">Meals</span>
-            <img src="assets/Paneer_Butter_Masala.png" alt="Paneer Butter Masala" loading="lazy" width="300"
-              height="200">
-          </div>
-          <div class="dish-card-body">
-            <div class="dish-card-top">
-              <h3>Paneer Butter Masala</h3><span class="dish-price" style="color: var(--accent-gold);">₹150</span>
+            <div class="premium-menu-grid" id="premiumMenuGrid">
+                <!-- Filled by JS -->
             </div>
-            <p class="dish-desc">Soft paneer cubes in a creamy tomato and butter sauce with aromatic spices, served with
-              basmati rice or roti.</p>
-            <div class="spice-level"><span class="spice-label" style="color: rgba(255,255,255,0.5);">Spice</span><span
-                class="spice-dot active"></span><span class="spice-dot"></span><span class="spice-dot"></span></div>
-            <div class="ingredient-tags"><span class="ingredient-tag dark-tag">Paneer</span><span
-                class="ingredient-tag dark-tag">Tomato</span><span class="ingredient-tag dark-tag">Cream</span><span
-                class="ingredient-tag dark-tag">Butter</span></div>
-            <div class="dish-card-actions"><button class="btn-view-details dark-btn-details"><svg width="14" height="14"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>View Details</button></div>
-          </div>
         </div>
+    </section>
 
-        <!-- Dish 8 -->
-        <div class="dish-card dark-dish-card" data-cat="desserts" data-dish="7">
-          <div class="dish-card-img">
-            <span class="dish-category-badge cat-desserts">Desserts</span>
-            <img src="assets/Gulab_Jamun.png" alt="Gulab Jamun" loading="lazy" width="300" height="200">
-          </div>
-          <div class="dish-card-body">
-            <div class="dish-card-top">
-              <h3>Gulab Jamun</h3><span class="dish-price" style="color: var(--accent-gold);">₹50</span>
+    <!-- Chef's Note -->
+    <section class="section">
+        <div class="container">
+            <div class="chef-note reveal">
+                <div class="chef-note-icon">👨‍🍳</div>
+                <div class="chef-note-content">
+                    <span class="section-subtitle">Chef's Promise</span>
+                    <h3>Crafted with Passion, Served with Pride</h3>
+                    <p>Every dish at Pegs Restaurant is prepared using the freshest locally-sourced ingredients and time-honoured recipes. Our multi-cuisine kitchen blends tradition with innovation to create an unforgettable dining experience. We cater to all dietary preferences — vegetarian, non-vegetarian, and Jain-friendly options available.</p>
+                </div>
             </div>
-            <p class="dish-desc">Soft, spongy milk balls soaked in fragrant rose and cardamom flavored sugar syrup,
-              served warm.</p>
-            <div class="spice-level"><span class="spice-label" style="color: rgba(255,255,255,0.5);">Spice</span><span
-                class="spice-dot"></span><span class="spice-dot"></span><span class="spice-dot"></span></div>
-            <div class="ingredient-tags"><span class="ingredient-tag dark-tag">Milk Powder</span><span
-                class="ingredient-tag dark-tag">Rose Water</span><span class="ingredient-tag dark-tag">Cardamom</span>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-bg">
+            <img src="assets/hotel/reception.jpg" alt="Hotel Rays Inn Interior">
+        </div>
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2 class="cta-title">Ready to Dine with Us?</h2>
+                <p class="cta-text">Book your table at Pegs Restaurant and treat yourself to a multi-cuisine feast you'll never forget.</p>
+                <div class="hero-actions">
+                    <a href="/#contact" class="btn btn-primary">Make a Reservation <span class="btn-icon">→</span></a>
+                    <a href="tel:+916366951126" class="btn btn-outline">📞 Call to Reserve</a>
+                </div>
             </div>
-            <div class="dish-card-actions"><button class="btn-view-details dark-btn-details"><svg width="14" height="14"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>View Details</button></div>
-          </div>
         </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo-text">Rays <span>Inn</span></div>
+                    <p class="footer-text">Premium boarding & lodging in Dharmastala, Karnataka. Offering luxurious accommodation, multi-cuisine dining at Pegs Restaurant, and the grand VELJIL banquet hall.</p>
+                    <div class="contact-social">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/menu">Restaurant</a></li>
+                        <li><a href="/#rooms">Rooms</a></li>
+                        <li><a href="/#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="/#rooms">Accommodation</a></li>
+                        <li><a href="/menu">Pegs Restaurant</a></li>
+                        <li><a href="/#contact">VELJIL Hall</a></li>
+                        <li><a href="/#contact">Event Booking</a></li>
+                        <li><a href="/about">Tourism Guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <span class="icon">📍</span>
+                        <span>Guruvayankere Junction, Belthangady Taluk, Dharmastala, Karnataka 574217</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="icon">📞</span>
+                        <span>+91 6366 951 126</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="icon">✉️</span>
+                        <span>info@raysinn.in</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2024 Hotel Rays Inn. All rights reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  <!-- Dish Detail Drawer (Modal Popup) -->
-  <div class="dish-drawer-overlay dark-overlay" id="dish-drawer-overlay"></div>
-  <div class="dish-drawer dark-drawer" id="dish-drawer">
-    <button class="drawer-close-btn dark-drawer-close" id="drawer-close" aria-label="Close">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="18" y1="6" x2="6" y2="18" />
-        <line x1="6" y1="6" x2="18" y2="18" />
-      </svg>
-    </button>
-    <img class="drawer-img" id="drawer-img" src="" alt="" loading="lazy">
-    <div class="drawer-body">
-      <p class="drawer-category" id="drawer-category" style="color: var(--accent-gold);">SEAFOOD</p>
-      <h2 id="drawer-title" style="color: #FFF;">Dish Name</h2>
-      <p class="drawer-price" id="drawer-price" style="color: var(--accent-gold);">₹000</p>
-      <p class="drawer-section-label" style="color: rgba(255,255,255,0.4);">Description</p>
-      <p class="drawer-desc" id="drawer-desc" style="color: rgba(255,255,255,0.75);">Full description here.</p>
-      <p class="drawer-section-label" style="color: rgba(255,255,255,0.4);">Key Ingredients</p>
-      <div class="drawer-ingredients-list" id="drawer-ingredients"></div>
-      <p class="drawer-section-label" style="color: rgba(255,255,255,0.4);">Spice Level</p>
-      <div class="drawer-spice" id="drawer-spice" style="color: #FFF;">
-        <span class="drawer-spice-label" id="drawer-spice-label">Medium</span>
-        <span class="spice-dot active"></span><span class="spice-dot active"></span><span class="spice-dot"></span>
-      </div>
-    </div>
-  </div>
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+    <div class="toast" id="toast"></div>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer style="border-top: 1px solid var(--border-dark);">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="logo" style="color:#FFF;">Woodlands<span>.</span></a>
-          <p>Authentic South Indian cuisine and traditional family hospitality in the heart of Udupi.</p>
-          <div class="social-links">
-            <a href="#" class="social-icon" aria-label="Facebook"><svg width="16" height="16" fill="currentColor"
-                viewBox="0 0 24 24">
-                <path
-                  d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.95z" />
-              </svg></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><svg width="16" height="16" fill="currentColor"
-                viewBox="0 0 24 24">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98C23.986 15.668 24 15.259 24 12c0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-              </svg></a>
-          </div>
-        </div>
-        <div class="footer-nav-col">
-          <h4>Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/menu">Menu</a></li>
-          </ul>
-        </div>
-        <div class="footer-nav-col">
-          <h4>Contact</h4>
-          <ul class="footer-contact-list">
-            <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-              </svg><span>+91 XXXXX XXXXX</span></li>
-            <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-              </svg><span>info@woodlandsudupi.com</span></li>
-            <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg><span>Udupi, Karnataka</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Woodlands Restaurant. All Rights Reserved.</p>
-        <p><a href="#">Privacy</a> &bull; <a href="#">Terms</a></p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ==================== BOOK TABLE MODAL ==================== -->
-  <div class="booking-modal-overlay" id="booking-modal-overlay" role="dialog" aria-modal="true"
-    aria-labelledby="booking-modal-title">
-    <div class="booking-modal">
-      <div class="booking-modal-header">
-        <div>
-          <h2 id="booking-modal-title">Book a Table</h2>
-          <p>Reserve your spot at Woodlands Restaurant</p>
-        </div>
-        <button class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
-      </div>
-      <form class="booking-form" id="booking-form" novalidate>
-        <div class="booking-form-row">
-          <div class="booking-field">
-            <label for="book-name">Full Name</label>
-            <input type="text" id="book-name" name="name" placeholder="Your name" required autocomplete="name">
-          </div>
-          <div class="booking-field">
-            <label for="book-phone">Phone</label>
-            <input type="tel" id="book-phone" name="phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
-          </div>
-        </div>
-        <div class="booking-field">
-          <label for="book-email">Email Address</label>
-          <input type="email" id="book-email" name="email" placeholder="your@email.com" required autocomplete="email">
-        </div>
-        <div class="booking-form-row">
-          <div class="booking-field">
-            <label for="book-date">Date</label>
-            <input type="date" id="book-date" name="date" required>
-          </div>
-          <div class="booking-field">
-            <label for="book-time">Time</label>
-            <input type="time" id="book-time" name="time" required>
-          </div>
-        </div>
-        <div class="booking-field">
-          <label for="book-guests">Number of Guests</label>
-          <select id="book-guests" name="guests" required>
-            <option value="" disabled selected>Select guests</option>
-            <option value="1">1 Guest</option>
-            <option value="2">2 Guests</option>
-            <option value="3">3 Guests</option>
-            <option value="4">4 Guests</option>
-            <option value="5">5 Guests</option>
-            <option value="6">6 Guests</option>
-            <option value="7+">7+ Guests (Group)</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary booking-submit">Confirm Reservation</button>
-      </form>
-      <div class="booking-success" id="booking-success">
-        <div class="booking-success-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </div>
-        <h3 style="font-size:1.35rem; color:#FFF;">Reservation Confirmed!</h3>
-        <p>We'll reach out to confirm your booking soon.</p>
-        <button class="btn btn-secondary" onclick="closeBookingModal()" style="margin-top:0.5rem;">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== BACK TO TOP ==================== -->
-  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 12 10 7 15 12"/></svg>
-  </button>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
+    <script src="menu-premium.js"></script>
 </body>
-
 </html>
