@@ -148,8 +148,32 @@ body {
         color: var(--gold) !important;
     }
 
-    .nav-cta {
-        margin-top: 15px;
+    .nav-links .nav-cta {
+        display: inline-block !important;
+        width: fit-content !important;
+        margin-top: 25px !important;
+        margin-bottom: 10px !important;
+        padding: 12px 32px !important;
+        border-bottom: none !important;
+        background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
+        color: var(--white) !important;
+        border-radius: 50px !important;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        text-transform: uppercase;
+        letter-spacing: 1.5px !important;
+        box-shadow: 0 4px 15px rgba(201, 169, 110, 0.3) !important;
+        text-align: center;
+        transition: all 0.3s var(--ease-smooth) !important;
+    }
+
+    .nav-links .nav-cta:hover,
+    .nav-links .nav-cta:focus,
+    .nav-links .nav-cta:active {
+        color: var(--white) !important;
+        background: linear-gradient(135deg, var(--gold-dark), var(--gold)) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 20px rgba(201, 169, 110, 0.45) !important;
     }
 
     /* ── Hero Section ── */
@@ -704,8 +728,7 @@ body {
     }
 
     .tourism-card-image {
-        height: 140px !important;
-        font-size: 3rem !important;
+        height: 180px !important;
     }
 
     .tourism-card-body {
@@ -1062,7 +1085,7 @@ body {
     }
 
     .tourism-card-image {
-        height: 120px !important;
+        height: 180px !important;
     }
 
     .modal {
