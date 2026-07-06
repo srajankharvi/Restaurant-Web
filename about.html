@@ -6,6 +6,7 @@
     <meta name="description" content="Learn about Hotel Rays Inn — our story, mission, board of directors, and the beautiful tourism destinations around Dharmastala.">
     <title>About Us | Hotel Rays Inn — Our Story & Vision</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile-premium.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏨</text></svg>">
 </head>
 <body>
@@ -274,12 +275,38 @@
         </div>
     </footer>
 
-    <!-- Back to Top -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile navigation">
+        <div class="mobile-bottom-nav-inner">
+            <button class="mobile-bottom-nav-item" data-href="/" aria-label="Home">
+                <span class="nav-icon">🏠</span>
+                <span>Home</span>
+            </button>
+            <button class="mobile-bottom-nav-item" data-href="/#rooms" aria-label="Rooms">
+                <span class="nav-icon">🛏️</span>
+                <span>Rooms</span>
+            </button>
+            <button class="mobile-bottom-nav-item mobile-bottom-nav-cta" data-href="#book" aria-label="Book Now">
+                <span class="nav-icon">📅</span>
+                <span>Book</span>
+            </button>
+            <button class="mobile-bottom-nav-item" data-href="/menu" aria-label="Restaurant">
+                <span class="nav-icon">🍽️</span>
+                <span>Menu</span>
+            </button>
+            <button class="mobile-bottom-nav-item" data-href="/#contact" aria-label="Contact">
+                <span class="nav-icon">📞</span>
+                <span>Contact</span>
+            </button>
+        </div>
+    </nav>
 
     <!-- Toast -->
     <div class="toast" id="toast"></div>
 
     <script src="script.js"></script>
+    <script src="mobile-premium.js"></script>
 </body>
 </html>
