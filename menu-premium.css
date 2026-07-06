@@ -154,16 +154,16 @@
 /* Prev & Next dish styles */
 .stage-dish.prev,
 .stage-dish.next {
-    width: 130px;
-    height: 130px;
-    opacity: 0.35;
+    width: 160px;
+    height: 160px;
+    opacity: 0.65;
     transform: scale(0.85);
     z-index: 2;
 }
 
 .stage-dish.prev:hover,
 .stage-dish.next:hover {
-    opacity: 0.65;
+    opacity: 0.85;
     transform: scale(0.9);
 }
 
@@ -194,19 +194,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 44px;
-    height: 44px;
-    background: var(--white);
-    border: 1px solid var(--border);
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
-    color: var(--text-secondary);
-    box-shadow: var(--shadow-md);
+    font-size: 1.3rem;
+    color: var(--charcoal);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.3s var(--ease-smooth);
     z-index: 10;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .stage-dish:hover .stage-arrow {
@@ -214,7 +216,7 @@
     border-color: var(--gold);
     color: var(--white);
     box-shadow: var(--shadow-gold);
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.15);
 }
 
 /* Stage glow behind active image */
@@ -720,20 +722,20 @@
 
     /* ── Peckers Stage Mobile ── */
     .menu-stage-wrapper {
-        padding: 0 10px;
+        padding: 0 5px;
         margin-bottom: 20px;
     }
 
     .menu-stage {
         height: 260px;
-        gap: 15px;
+        gap: 20px;
     }
 
     .stage-dish.prev,
     .stage-dish.next {
-        width: 75px;
-        height: 75px;
-        opacity: 0.3;
+        width: 90px;
+        height: 90px;
+        opacity: 0.6;
     }
 
     .stage-dish.active {
@@ -746,9 +748,9 @@
     }
 
     .stage-arrow {
-        width: 32px;
-        height: 32px;
-        font-size: 1.1rem;
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
     }
 
     .stage-dish-glow {
@@ -840,13 +842,14 @@
 @media (max-width: 480px) {
     .menu-stage {
         height: 210px;
-        gap: 8px;
+        gap: 12px;
     }
 
     .stage-dish.prev,
     .stage-dish.next {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
+        opacity: 0.6;
     }
 
     .stage-dish.active {
