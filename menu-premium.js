@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ── 10 Real Dishes with Generated Images ──
+    // ── 10 Real Dishes with Peckers-Style Detailed Data ──
     const allDishes = [
         {
             id: 0,
@@ -14,12 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
             category: "mains",
             image: "assets/food/butter_chicken.png",
             desc: "Tender chicken pieces in a rich, creamy tomato-butter sauce with aromatic North Indian spices. Served with butter naan.",
-            longDesc: "Peckers fried chicken served with mild spicy rice, house-made mayo, and fresh lettuce.",
             ingredients: ["Chicken", "Tomato", "Cream", "Butter", "Kasuri Methi"],
             spice: 1,
             spiceLabel: "Mild",
             calories: "520 Kcal",
-            protein: "32g Protein",
+            protein: "32g",
+            carbs: "24g",
+            fats: "18g",
+            allergens: ["Dairy", "Nuts"],
             comboNote: "Also available as a combo meal with rice, naan, and dessert"
         },
         {
@@ -33,7 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spice: 2,
             spiceLabel: "Medium",
             calories: "340 Kcal",
-            protein: "22g Protein",
+            protein: "22g",
+            carbs: "14g",
+            fats: "12g",
+            allergens: ["Dairy"],
             comboNote: "Also available as a wrap and a salad bowl"
         },
         {
@@ -47,7 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spice: 2,
             spiceLabel: "Medium",
             calories: "290 Kcal",
-            protein: "8g Protein",
+            protein: "8g",
+            carbs: "45g",
+            fats: "6g",
+            allergens: ["Mustard"],
             comboNote: "Also available as Ghee Roast, Rava, or Paper Dosa"
         },
         {
@@ -61,7 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spice: 2,
             spiceLabel: "Medium",
             calories: "580 Kcal",
-            protein: "35g Protein",
+            protein: "35g",
+            carbs: "62g",
+            fats: "20g",
+            allergens: ["Dairy"],
             comboNote: "Served with raita, mirchi ka salan, and boiled egg"
         },
         {
@@ -75,7 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spice: 0,
             spiceLabel: "Not Spicy",
             calories: "480 Kcal",
-            protein: "42g Protein",
+            protein: "42g",
+            carbs: "12g",
+            fats: "14g",
+            allergens: ["None"],
             comboNote: "Also available with mushroom sauce or pepper sauce"
         },
         {
@@ -89,7 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spice: 1,
             spiceLabel: "Mild",
             calories: "380 Kcal",
-            protein: "12g Protein",
+            protein: "12g",
+            carbs: "54g",
+            fats: "8g",
+            allergens: ["Gluten", "Soy"],
             comboNote: "Available in Veg, Chicken, and Egg options"
         },
         {
@@ -103,7 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spice: 0,
             spiceLabel: "Not Spicy",
             calories: "310 Kcal",
-            protein: "4g Protein",
+            protein: "4g",
+            carbs: "48g",
+            fats: "10g",
+            allergens: ["Dairy", "Gluten", "Nuts"],
             comboNote: "Served warm with a scoop of vanilla ice cream on request"
         },
         {
@@ -117,7 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spice: 1,
             spiceLabel: "Mild",
             calories: "420 Kcal",
-            protein: "18g Protein",
+            protein: "18g",
+            carbs: "38g",
+            fats: "16g",
+            allergens: ["Dairy"],
             comboNote: "Also available as a combo with jeera rice and raita"
         },
         {
@@ -131,7 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spice: 0,
             spiceLabel: "Not Spicy",
             calories: "460 Kcal",
-            protein: "16g Protein",
+            protein: "16g",
+            carbs: "42g",
+            fats: "22g",
+            allergens: ["Dairy", "Gluten"],
             comboNote: "Also available in Arrabiata (spicy) and Pesto sauce"
         },
         {
@@ -145,7 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spice: 0,
             spiceLabel: "Not Spicy",
             calories: "90 Kcal",
-            protein: "3g Protein",
+            protein: "3g",
+            carbs: "12g",
+            fats: "4g",
+            allergens: ["Dairy"],
             comboNote: "Also available as Cold Coffee, Cappuccino, and Espresso"
         }
     ];
@@ -153,133 +182,137 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentDishIndex = 0;
     let filteredDishes = [...allDishes];
 
-    const menuCarousel = document.getElementById('menuCarousel');
-    const featuredImg = document.getElementById('featuredImg');
+    // ── Element Bindings ──
+    const stagePrev = document.getElementById('stagePrev');
+    const stageActive = document.getElementById('stageActive');
+    const stageNext = document.getElementById('stageNext');
+
+    const stagePrevImg = document.getElementById('stagePrevImg');
+    const stageActiveImg = document.getElementById('stageActiveImg');
+    const stageNextImg = document.getElementById('stageNextImg');
+
     const featuredName = document.getElementById('featuredName');
-    const featuredDesc = document.getElementById('featuredDesc');
     const featuredPrice = document.getElementById('featuredPrice');
-    const featuredSpice = document.getElementById('featuredSpice');
+    const featuredDesc = document.getElementById('featuredDesc');
     const featuredCal = document.getElementById('featuredCal');
-    const featuredIngredients = document.getElementById('featuredIngredients');
+    const featuredProtein = document.getElementById('featuredProtein');
+    const featuredCarbs = document.getElementById('featuredCarbs');
+    const featuredFats = document.getElementById('featuredFats');
+    const featuredAllergens = document.getElementById('featuredAllergens');
+    const featuredSpice = document.getElementById('featuredSpice');
     const featuredAlso = document.getElementById('featuredAlso');
-    const featuredDish = document.getElementById('featuredDish');
     const featuredInfo = document.getElementById('featuredInfo');
-    const carouselPrev = document.getElementById('carouselPrev');
-    const carouselNext = document.getElementById('carouselNext');
 
-    if (!menuCarousel) return; // Not on menu page
-
-    // ── Build Carousel ──
-    function buildCarousel() {
-        menuCarousel.innerHTML = '';
-        filteredDishes.forEach((dish, index) => {
-            const el = document.createElement('div');
-            el.className = 'carousel-dish' + (index === currentDishIndex ? ' active' : '');
-            el.innerHTML = `
-                <img src="${dish.image}" alt="${dish.name}" loading="lazy">
-                <span class="dish-label">${dish.name}</span>
-            `;
-            el.addEventListener('click', () => selectDish(index));
-            menuCarousel.appendChild(el);
-        });
-    }
+    if (!stageActive) return; // Not on menu page
 
     // ── Select Dish ──
     function selectDish(index) {
-        if (index < 0 || index >= filteredDishes.length) return;
+        if (filteredDishes.length === 0) return;
+        
+        // Wrap around bounds
+        if (index < 0) index = filteredDishes.length - 1;
+        if (index >= filteredDishes.length) index = 0;
+        
         currentDishIndex = index;
-        const dish = filteredDishes[currentDishIndex];
 
-        // Update carousel active
-        const items = menuCarousel.querySelectorAll('.carousel-dish');
-        items.forEach((item, i) => {
-            item.classList.toggle('active', i === currentDishIndex);
-        });
+        const activeDish = filteredDishes[currentDishIndex];
+        const prevDish = filteredDishes[(currentDishIndex - 1 + filteredDishes.length) % filteredDishes.length];
+        const nextDish = filteredDishes[(currentDishIndex + 1) % filteredDishes.length];
 
-        // Scroll active into view
-        if (items[currentDishIndex]) {
-            items[currentDishIndex].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        // Animate elements (Reflow & add classes)
+        const stageWrapper = document.querySelector('.menu-stage-wrapper');
+        if (stageWrapper) {
+            stageWrapper.classList.remove('dish-transition');
+            void stageWrapper.offsetWidth;
+            stageWrapper.classList.add('dish-transition');
         }
 
-        // Animate featured dish
-        if (featuredDish) {
-            featuredDish.classList.remove('dish-transition');
-            void featuredDish.offsetWidth; // Reflow
-            featuredDish.classList.add('dish-transition');
-        }
         if (featuredInfo) {
             featuredInfo.classList.remove('info-transition');
             void featuredInfo.offsetWidth;
             featuredInfo.classList.add('info-transition');
         }
 
-        // Update featured image
-        if (featuredImg) {
-            featuredImg.src = dish.image;
-            featuredImg.alt = dish.name;
-        }
+        // Update Images
+        if (stageActiveImg) stageActiveImg.src = activeDish.image;
+        if (stagePrevImg) stagePrevImg.src = prevDish.image;
+        if (stageNextImg) stageNextImg.src = nextDish.image;
 
-        // Update info
-        if (featuredName) featuredName.textContent = dish.name;
-        if (featuredDesc) featuredDesc.textContent = dish.desc;
-        if (featuredPrice) featuredPrice.textContent = dish.price;
-        if (featuredCal) featuredCal.textContent = dish.calories;
+        // Update Text Info
+        if (featuredName) featuredName.textContent = activeDish.name;
+        if (featuredPrice) featuredPrice.textContent = activeDish.price;
+        if (featuredDesc) featuredDesc.textContent = activeDish.desc;
 
-        // Spice dots
-        if (featuredSpice) {
-            const maxSpice = 3;
-            let dotsHTML = '';
-            for (let i = 0; i < maxSpice; i++) {
-                dotsHTML += `<span class="spice-dot${i < dish.spice ? ' active' : ''}"></span>`;
-            }
-            featuredSpice.innerHTML = dotsHTML;
-        }
+        // Update Stats Column
+        if (featuredCal) featuredCal.textContent = activeDish.calories;
+        if (featuredProtein) featuredProtein.textContent = activeDish.protein;
+        if (featuredCarbs) featuredCarbs.textContent = activeDish.carbs;
+        if (featuredFats) featuredFats.textContent = activeDish.fats;
 
-        // Ingredients
-        if (featuredIngredients) {
-            featuredIngredients.innerHTML = dish.ingredients.map(i =>
-                `<span class="ingredient-tag">${i}</span>`
+        // Update Allergens
+        if (featuredAllergens) {
+            featuredAllergens.innerHTML = activeDish.allergens.map(allergen => 
+                `<span class="allergen-tag">${allergen}</span>`
             ).join('');
         }
 
-        // Combo note
+        // Update Spice level (Peckers Bar style)
+        if (featuredSpice) {
+            let spiceBarHTML = '';
+            const maxSpice = 3;
+            // Class mapping for different spices
+            let spiceClass = 'active';
+            if (activeDish.spice === 1) spiceClass = 'active mild';
+            if (activeDish.spice === 3) spiceClass = 'active hot';
+            
+            for (let i = 0; i < maxSpice; i++) {
+                spiceBarHTML += `<span class="spice-bar${i < activeDish.spice ? ' ' + spiceClass : ''}"></span>`;
+            }
+            featuredSpice.innerHTML = spiceBarHTML;
+        }
+
+        // Update Also note
         if (featuredAlso) {
-            featuredAlso.querySelector('p').textContent = dish.comboNote || '';
+            featuredAlso.querySelector('p').textContent = activeDish.comboNote || '';
         }
     }
 
-    // ── Carousel Navigation ──
-    if (carouselPrev) {
-        carouselPrev.addEventListener('click', () => {
-            const newIndex = (currentDishIndex - 1 + filteredDishes.length) % filteredDishes.length;
-            selectDish(newIndex);
+    // ── Arrow/Stage Item Navigation ──
+    if (stagePrev) {
+        stagePrev.addEventListener('click', () => {
+            selectDish(currentDishIndex - 1);
         });
     }
 
-    if (carouselNext) {
-        carouselNext.addEventListener('click', () => {
-            const newIndex = (currentDishIndex + 1) % filteredDishes.length;
-            selectDish(newIndex);
+    if (stageNext) {
+        stageNext.addEventListener('click', () => {
+            selectDish(currentDishIndex + 1);
         });
     }
 
-    // Keyboard navigation
+    // Keyboard Arrow Navigation
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft' && carouselPrev) carouselPrev.click();
-        if (e.key === 'ArrowRight' && carouselNext) carouselNext.click();
+        if (e.key === 'ArrowLeft') selectDish(currentDishIndex - 1);
+        if (e.key === 'ArrowRight') selectDish(currentDishIndex + 1);
     });
 
-    // ── Showcase Tabs (filter carousel) ──
+    // ── Showcase Tabs (Category filter) ──
     const showcaseTabs = document.querySelectorAll('.showcase-tab');
     showcaseTabs.forEach(tab => {
         tab.addEventListener('click', () => {
             showcaseTabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
+            
             const cat = tab.dataset.cat;
             filteredDishes = cat === 'all' ? [...allDishes] : allDishes.filter(d => d.category === cat);
             currentDishIndex = 0;
-            buildCarousel();
-            if (filteredDishes.length > 0) selectDish(0);
+            
+            if (filteredDishes.length > 0) {
+                // Show carousel elements
+                if (stagePrev) stagePrev.style.display = filteredDishes.length > 1 ? 'flex' : 'none';
+                if (stageNext) stageNext.style.display = filteredDishes.length > 1 ? 'flex' : 'none';
+                selectDish(0);
+            }
         });
     });
 
@@ -297,9 +330,9 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
 
-            let spiceDots = '';
+            let spiceBars = '';
             for (let i = 0; i < 3; i++) {
-                spiceDots += `<span class="dot${i < dish.spice ? ' on' : ''}"></span>`;
+                spiceBars += `<span class="bar${i < dish.spice ? ' on' : ''}"></span>`;
             }
 
             card.innerHTML = `
@@ -312,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="pmg-card-body">
                     <div class="pmg-card-header">
                         <h3 class="pmg-card-title">${dish.name}</h3>
-                        <div class="pmg-card-spice">${spiceDots}</div>
+                        <div class="pmg-card-spice-bars">${spiceBars}</div>
                     </div>
                     <p class="pmg-card-desc">${dish.desc}</p>
                     <div class="pmg-card-footer">
@@ -347,11 +380,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ── Auto-rotate carousel ──
+    // ── Auto-rotate stage carousel ──
     let autoRotate = setInterval(() => {
-        const newIndex = (currentDishIndex + 1) % filteredDishes.length;
-        selectDish(newIndex);
-    }, 5000);
+        selectDish(currentDishIndex + 1);
+    }, 6000);
 
     // Pause on hover
     const showcaseSection = document.getElementById('menuShowcase');
@@ -359,38 +391,34 @@ document.addEventListener('DOMContentLoaded', () => {
         showcaseSection.addEventListener('mouseenter', () => clearInterval(autoRotate));
         showcaseSection.addEventListener('mouseleave', () => {
             autoRotate = setInterval(() => {
-                const newIndex = (currentDishIndex + 1) % filteredDishes.length;
-                selectDish(newIndex);
-            }, 5000);
+                selectDish(currentDishIndex + 1);
+            }, 6000);
         });
     }
 
-    // ── Touch swipe for carousel ──
-    let touchStartX = 0;
-    let touchEndX = 0;
+    // ── Swipe gestures on active dish ──
+    if (stageActive) {
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-    if (menuCarousel) {
-        menuCarousel.addEventListener('touchstart', (e) => {
+        stageActive.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
 
-        menuCarousel.addEventListener('touchend', (e) => {
+        stageActive.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
             const diff = touchStartX - touchEndX;
             if (Math.abs(diff) > 50) {
                 if (diff > 0) {
-                    // Swipe left = next
-                    selectDish((currentDishIndex + 1) % filteredDishes.length);
+                    selectDish(currentDishIndex + 1); // Swipe left = next
                 } else {
-                    // Swipe right = prev
-                    selectDish((currentDishIndex - 1 + filteredDishes.length) % filteredDishes.length);
+                    selectDish(currentDishIndex - 1); // Swipe right = prev
                 }
             }
         }, { passive: true });
     }
 
     // ── Initialize ──
-    buildCarousel();
     selectDish(0);
     renderGrid(allDishes);
 

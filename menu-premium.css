@@ -75,194 +75,161 @@
     position: relative;
     z-index: 10;
     display: flex;
-    gap: 8px;
+    gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     padding: 0 20px;
+    border-bottom: 1.5px solid var(--border-light);
 }
 
 .showcase-tab {
-    padding: 10px 24px;
+    padding: 14px 0;
     background: transparent;
-    border: 1.5px solid var(--border);
-    border-radius: 50px;
+    border: none;
     font-family: var(--font-body);
-    font-size: 0.78rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--text-muted);
     cursor: pointer;
-    transition: all 0.4s var(--ease-smooth);
+    transition: all 0.3s var(--ease-smooth);
+    border-bottom: 2.5px solid transparent;
     position: relative;
-    overflow: hidden;
-}
-
-.showcase-tab::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.1), transparent);
-    transition: left 0.5s;
-}
-
-.showcase-tab:hover::before {
-    left: 100%;
 }
 
 .showcase-tab:hover {
-    border-color: var(--gold);
     color: var(--gold);
 }
 
 .showcase-tab.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--white);
-    box-shadow: 0 4px 20px rgba(201, 169, 110, 0.3);
+    color: var(--gold);
+    border-bottom-color: var(--gold);
 }
 
-/* ── Carousel ── */
-.menu-carousel-wrapper {
+/* ── Peckers-style 3D Stage Carousel ── */
+.menu-stage-wrapper {
     position: relative;
     z-index: 5;
     width: 100%;
-    max-width: 1100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    padding: 0 60px;
+    max-width: 1000px;
+    margin: 0 auto 35px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.menu-carousel {
+.menu-stage {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    gap: 35px;
+    position: relative;
+    height: 380px;
+}
+
+.stage-dish {
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+    user-select: none;
+}
+
+.stage-dish-img-wrap {
     width: 100%;
-    perspective: 1200px;
-    min-height: 120px;
-}
-
-.carousel-dish {
-    width: 100px;
-    height: 100px;
+    height: 100%;
     border-radius: 50%;
     overflow: hidden;
-    cursor: pointer;
-    flex-shrink: 0;
-    border: 3px solid var(--border-light);
-    transition: all 0.5s var(--ease-smooth);
-    position: relative;
-    opacity: 0.5;
-    transform: scale(0.85);
-    box-shadow: var(--shadow-sm);
 }
 
-.carousel-dish img {
+.stage-dish img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s var(--ease-smooth);
-}
-
-.carousel-dish:hover {
-    opacity: 0.8;
-    transform: scale(0.95);
-    border-color: var(--gold-light);
-    box-shadow: var(--shadow-md);
-}
-
-.carousel-dish:hover img {
-    transform: scale(1.1);
-}
-
-.carousel-dish.active {
-    opacity: 1;
-    transform: scale(1.15);
-    border-color: var(--gold);
-    box-shadow: 0 8px 35px rgba(201, 169, 110, 0.35);
-}
-
-.carousel-dish .dish-label {
-    position: absolute;
-    bottom: -28px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.65rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    white-space: nowrap;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.carousel-dish.active .dish-label,
-.carousel-dish:hover .dish-label {
-    opacity: 1;
-}
-
-/* Carousel Arrows */
-.carousel-arrow {
-    width: 50px;
-    height: 50px;
     border-radius: 50%;
-    border: 1.5px solid var(--border);
-    background: var(--white);
-    color: var(--text-secondary);
-    font-size: 1.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s var(--ease-smooth);
-    flex-shrink: 0;
-    z-index: 10;
-    line-height: 1;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+    transition: transform 0.6s var(--ease-smooth);
 }
 
-.carousel-arrow:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--white);
-    box-shadow: var(--shadow-gold);
-    transform: scale(1.1);
+/* Prev & Next dish styles */
+.stage-dish.prev,
+.stage-dish.next {
+    width: 130px;
+    height: 130px;
+    opacity: 0.35;
+    transform: scale(0.85);
+    z-index: 2;
 }
 
-/* ── Featured Dish (Center Hero) ── */
-.featured-dish {
-    position: relative;
+.stage-dish.prev:hover,
+.stage-dish.next:hover {
+    opacity: 0.65;
+    transform: scale(0.9);
+}
+
+.stage-dish.prev img:hover,
+.stage-dish.next img:hover {
+    transform: scale(1.05);
+}
+
+/* Active/Center dish style */
+.stage-dish.active {
+    width: 310px;
+    height: 310px;
     z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0 40px;
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: none;
 }
 
-.featured-dish-image-wrap {
-    position: relative;
-    width: 340px;
-    height: 340px;
+.stage-dish.active img {
+    border: 5px solid var(--white);
+    outline: 1.5px solid var(--gold);
+    box-shadow: 0 25px 70px rgba(201, 169, 110, 0.25);
 }
 
-.featured-dish-glow {
+/* Navigation arrows centered over side cards */
+.stage-arrow {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 380px;
-    height: 380px;
+    width: 44px;
+    height: 44px;
+    background: var(--white);
+    border: 1px solid var(--border);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(201, 169, 110, 0.15) 0%, transparent 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s var(--ease-smooth);
+    z-index: 10;
+}
+
+.stage-dish:hover .stage-arrow {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--white);
+    box-shadow: var(--shadow-gold);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Stage glow behind active image */
+.stage-dish-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.12) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
     animation: glowPulse 3s ease-in-out infinite;
-    z-index: 0;
 }
 
 @keyframes glowPulse {
@@ -270,47 +237,14 @@
     50% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
 }
 
-.featured-dish-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-    transition: all 0.6s var(--ease-smooth);
-    border: 4px solid rgba(201, 169, 110, 0.3);
-}
-
-.featured-dish-img:hover {
-    transform: scale(1.04) rotate(2deg);
-    box-shadow: 0 25px 70px rgba(201, 169, 110, 0.25);
-}
-
-.featured-dish-ring {
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    width: calc(100% + 30px);
-    height: calc(100% + 30px);
-    border-radius: 50%;
-    border: 1px dashed rgba(201, 169, 110, 0.25);
-    z-index: 1;
-    animation: ringRotate 20s linear infinite;
-}
-
-@keyframes ringRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
 /* ── Featured Dish Info ── */
 .featured-dish-info {
     position: relative;
     z-index: 5;
     text-align: center;
-    max-width: 650px;
-    padding: 0 30px;
+    max-width: 800px;
+    padding: 0 20px;
+    margin: 0 auto;
     animation: fadeInUp 0.6s var(--ease-out);
 }
 
@@ -321,12 +255,20 @@
 
 .featured-dish-name {
     font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
     font-weight: 700;
     color: var(--charcoal);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.featured-dish-price {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+    margin-bottom: 20px;
 }
 
 .featured-dish-desc {
@@ -337,104 +279,140 @@
     line-height: 1.8;
     margin-bottom: 30px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     font-style: italic;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Meta Bar */
-.featured-dish-meta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    margin-bottom: 25px;
-    padding: 20px 0;
+/* Peckers-style Info Grid */
+.peckers-info-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+    padding-top: 40px;
     border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
+    text-align: left;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.featured-meta-item {
+.peckers-stats-col, 
+.peckers-meta-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.peckers-stats-col {
+    border-right: 1.5px solid var(--border-light);
+    padding-right: 40px;
+}
+
+.col-title {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+    display: block;
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat-item-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    padding: 0 35px;
+    background: var(--pearl);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 15px 4px;
+    transition: all 0.3s var(--ease-smooth);
 }
 
-.featured-meta-divider {
-    width: 1px;
-    height: 40px;
-    background: var(--border);
+.stat-item-box:hover {
+    background: var(--white);
+    border-color: var(--gold-light);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
 }
 
-.meta-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-
-.meta-value {
+.stat-val {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--charcoal);
 }
 
-/* Spice Indicator */
-.spice-indicator {
+.stat-lbl {
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+/* Right Column meta blocks */
+.meta-block {
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.allergen-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.allergen-tag {
+    padding: 6px 14px;
+    background: var(--cream);
+    border: 1px solid var(--border-light);
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Spice Level Bars */
+.peckers-spice-level {
+    display: flex;
+    gap: 6px;
     align-items: center;
 }
 
-.spice-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 3px;
+.spice-bar {
+    width: 45px;
+    height: 8px;
+    border-radius: 20px;
     background: var(--border-light);
     transition: background 0.3s;
 }
 
-.spice-dot.active {
-    background: #e74c3c;
-}
-
-.spice-dot.active.mild {
-    background: #f39c12;
-}
-
-.spice-dot.active.green {
-    background: #27ae60;
-}
-
-/* Ingredients */
-.featured-dish-ingredients {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-bottom: 35px;
-}
-
-.ingredient-tag {
-    padding: 6px 18px;
-    background: var(--cream);
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border: 1px solid var(--border-light);
-    transition: all 0.3s var(--ease-smooth);
-}
-
-.ingredient-tag:hover {
+.spice-bar.active {
     background: var(--gold);
-    color: var(--white);
-    border-color: var(--gold);
+}
+
+.spice-bar.active.mild {
+    background: #f1c40f;
+}
+
+.spice-bar.active.hot {
+    background: #e74c3c;
 }
 
 /* Actions */
@@ -443,7 +421,7 @@
     gap: 15px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 /* Also Available */
@@ -740,70 +718,102 @@
         letter-spacing: 1.5px;
     }
 
-    .menu-carousel-wrapper {
-        padding: 0 15px;
+    /* ── Peckers Stage Mobile ── */
+    .menu-stage-wrapper {
+        padding: 0 10px;
+        margin-bottom: 20px;
     }
 
-    .menu-carousel {
-        gap: 12px;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 10px 5px 35px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-
-    .menu-carousel::-webkit-scrollbar {
-        display: none;
-    }
-
-    .carousel-dish {
-        width: 70px;
-        height: 70px;
-    }
-
-    .carousel-arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 1.3rem;
-    }
-
-    .featured-dish-image-wrap {
-        width: 230px;
-        height: 230px;
-    }
-
-    .featured-dish-glow {
-        width: 260px;
+    .menu-stage {
         height: 260px;
+        gap: 15px;
     }
 
+    .stage-dish.prev,
+    .stage-dish.next {
+        width: 75px;
+        height: 75px;
+        opacity: 0.3;
+    }
+
+    .stage-dish.active {
+        width: 180px;
+        height: 180px;
+    }
+
+    .stage-dish.active img {
+        border-width: 3px;
+    }
+
+    .stage-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+    }
+
+    .stage-dish-glow {
+        width: 210px;
+        height: 210px;
+    }
+
+    /* ── Details Mobile ── */
     .featured-dish-name {
         font-size: 1.6rem;
     }
 
+    .featured-dish-price {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+
     .featured-dish-desc {
         font-size: 0.9rem;
-    }
-
-    .featured-dish-meta {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .featured-meta-divider {
-        width: 60px;
-        height: 1px;
-    }
-
-    .featured-meta-item {
-        padding: 0;
+        margin-bottom: 25px;
+        letter-spacing: 0.8px;
     }
 
     .featured-dish-actions {
         flex-direction: column;
         align-items: center;
+        gap: 12px;
+    }
+
+    .featured-dish-actions .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    /* Info Grid Mobile Stack */
+    .peckers-info-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-top: 30px;
+        margin-top: 30px;
+    }
+
+    .peckers-stats-col {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid var(--border-light);
+        padding-bottom: 30px;
+    }
+
+    .stats-row {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .stat-item-box {
+        padding: 10px 2px;
+    }
+
+    .stat-val {
+        font-size: 1rem;
+    }
+
+    .stat-lbl {
+        font-size: 0.58rem;
     }
 
     .premium-menu-grid {
@@ -828,9 +838,30 @@
 }
 
 @media (max-width: 480px) {
-    .carousel-dish {
+    .menu-stage {
+        height: 210px;
+        gap: 8px;
+    }
+
+    .stage-dish.prev,
+    .stage-dish.next {
         width: 60px;
         height: 60px;
+    }
+
+    .stage-dish.active {
+        width: 140px;
+        height: 140px;
+    }
+
+    .stage-dish-glow {
+        width: 160px;
+        height: 160px;
+    }
+
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 
     .featured-dish-image-wrap {

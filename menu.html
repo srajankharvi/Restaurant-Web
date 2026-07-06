@@ -69,63 +69,88 @@
             <button class="showcase-tab" data-cat="beverages">Beverages</button>
         </div>
 
-        <!-- Carousel -->
-        <div class="menu-carousel-wrapper">
-            <button class="carousel-arrow carousel-arrow-left" id="carouselPrev" aria-label="Previous">‹</button>
-            
-            <div class="menu-carousel" id="menuCarousel">
-                <!-- Circular orbiting items — filled by JS -->
-            </div>
+        <!-- Peckers-style 3D Stage Carousel -->
+        <div class="menu-stage-wrapper">
+            <div class="menu-stage">
+                <!-- Prev Dish Card -->
+                <div class="stage-dish prev" id="stagePrev">
+                    <div class="stage-dish-img-wrap">
+                        <img src="" alt="" id="stagePrevImg">
+                    </div>
+                    <span class="stage-arrow">‹</span>
+                </div>
 
-            <button class="carousel-arrow carousel-arrow-right" id="carouselNext" aria-label="Next">›</button>
+                <!-- Active/Center Dish Card -->
+                <div class="stage-dish active" id="stageActive">
+                    <div class="stage-dish-glow"></div>
+                    <div class="stage-dish-img-wrap">
+                        <img src="" alt="" id="stageActiveImg">
+                    </div>
+                </div>
+
+                <!-- Next Dish Card -->
+                <div class="stage-dish next" id="stageNext">
+                    <div class="stage-dish-img-wrap">
+                        <img src="" alt="" id="stageNextImg">
+                    </div>
+                    <span class="stage-arrow">›</span>
+                </div>
+            </div>
         </div>
 
-        <!-- Featured Dish (center stage) -->
-        <div class="featured-dish" id="featuredDish">
-            <div class="featured-dish-image-wrap">
-                <div class="featured-dish-glow"></div>
-                <img src="assets/food/butter_chicken.png" alt="Featured Dish" id="featuredImg" class="featured-dish-img">
-                <div class="featured-dish-ring"></div>
-            </div>
-        </div>
-
-        <!-- Dish Details -->
+        <!-- Featured Dish Details (Peckers-style) -->
         <div class="featured-dish-info" id="featuredInfo">
             <h2 class="featured-dish-name" id="featuredName">Butter Chicken</h2>
+            <div class="featured-dish-price" id="featuredPrice">₹380</div>
             <p class="featured-dish-desc" id="featuredDesc">Tender chicken pieces in a rich, creamy tomato-butter sauce with aromatic North Indian spices. Served with butter naan.</p>
             
-            <div class="featured-dish-meta">
-                <div class="featured-meta-item">
-                    <span class="meta-label">Price</span>
-                    <span class="meta-value" id="featuredPrice">₹380</span>
-                </div>
-                <div class="featured-meta-divider"></div>
-                <div class="featured-meta-item">
-                    <span class="meta-label">Spice Level</span>
-                    <span class="meta-value spice-indicator" id="featuredSpice">
-                        <span class="spice-dot active"></span>
-                        <span class="spice-dot"></span>
-                        <span class="spice-dot"></span>
-                    </span>
-                </div>
-                <div class="featured-meta-divider"></div>
-                <div class="featured-meta-item">
-                    <span class="meta-label">Nutrition</span>
-                    <span class="meta-value" id="featuredCal">520 Kcal</span>
-                </div>
-            </div>
-
-            <div class="featured-dish-ingredients" id="featuredIngredients">
-                <span class="ingredient-tag">Chicken</span>
-                <span class="ingredient-tag">Tomato</span>
-                <span class="ingredient-tag">Cream</span>
-                <span class="ingredient-tag">Butter</span>
-                <span class="ingredient-tag">Spices</span>
-            </div>
-
             <div class="featured-dish-actions">
                 <a href="/#contact" class="btn btn-primary">Reserve a Table <span class="btn-icon">→</span></a>
-                <a href="tel:+916366951126" class="btn btn-dark-outline">📞 Order Now</a>
+                <a href="tel:+916366951126" class="btn btn-dark-outline">Order Now <span class="btn-icon">→</span></a>
+            </div>
+
+            <!-- Peckers-style Info Grid -->
+            <div class="peckers-info-grid">
+                <!-- Left stats column -->
+                <div class="peckers-stats-col">
+                    <span class="col-title">Nutrition (Per Portion)</span>
+                    <div class="stats-row">
+                        <div class="stat-item-box">
+                            <span class="stat-val" id="featuredCal">520 Kcal</span>
+                            <span class="stat-lbl">Calories</span>
+                        </div>
+                        <div class="stat-item-box">
+                            <span class="stat-val" id="featuredProtein">32g</span>
+                            <span class="stat-lbl">Protein</span>
+                        </div>
+                        <div class="stat-item-box">
+                            <span class="stat-val" id="featuredCarbs">24g</span>
+                            <span class="stat-lbl">Carbs</span>
+                        </div>
+                        <div class="stat-item-box">
+                            <span class="stat-val" id="featuredFats">18g</span>
+                            <span class="stat-lbl">Fats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right meta column (Allergens & Spice) -->
+                <div class="peckers-meta-col">
+                    <div class="meta-block">
+                        <span class="col-title">Allergens</span>
+                        <div class="allergen-tags" id="featuredAllergens">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="meta-block">
+                        <span class="col-title">Spice Level</span>
+                        <div class="peckers-spice-level" id="featuredSpice">
+                            <span class="spice-bar active"></span>
+                            <span class="spice-bar"></span>
+                            <span class="spice-bar"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
